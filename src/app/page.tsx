@@ -5,6 +5,7 @@ import { Proyectos } from "@/components/sections/Proyectos";
 import { Trayectoria } from "@/components/sections/Trayectoria";
 import { LoQueResuelvo } from "@/components/sections/LoQueResuelvo";
 import { Proceso } from "@/components/sections/Proceso";
+import { Testimonios } from "@/components/sections/Testimonios";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Trayectoria />
         <LoQueResuelvo />
         <Proceso />
+        <Testimonios />
       </main>
       <Footer />
     </>
