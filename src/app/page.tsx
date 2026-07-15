@@ -8,6 +8,7 @@ import { Proceso } from "@/components/sections/Proceso";
 import { Testimonios } from "@/components/sections/Testimonios";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contacto } from "@/components/sections/Contacto";
+import { CTA } from "@/components/sections/CTA";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Testimonios />
         <FAQ />
         <Contacto />
+        <CTA />
       </main>
       <Footer />
     </>

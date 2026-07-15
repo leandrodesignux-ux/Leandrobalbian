@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
 import { Container } from "@/components/ui/Container";
+import { GeometricBackground } from "@/components/ui/GeometricBackground";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 
 function LinkedInIcon({ className }: { className?: string }) {
@@ -92,68 +92,12 @@ function SocialCard({
 }
 
 export function Contacto() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const patternY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-
   return (
     <section
       id="contacto"
-      ref={sectionRef}
       className="relative overflow-hidden py-24 md:py-32"
     >
-      {/* Geometric pattern background */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{ y: patternY }}
-      >
-        <svg
-          className="h-full w-full"
-          viewBox="0 0 1200 600"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <path
-            d="M100 100 L400 500 L700 200"
-            stroke="rgba(255,255,255,0.08)"
-            strokeWidth="1"
-          />
-          <path
-            d="M300 50 L900 550"
-            stroke="rgba(255,255,255,0.06)"
-            strokeWidth="1"
-          />
-          <path
-            d="M600 0 L1100 400 L900 600"
-            stroke="rgba(255,255,255,0.06)"
-            strokeWidth="1"
-          />
-          <path
-            d="M50 300 L350 100 L650 350"
-            stroke="rgba(200,255,0,0.06)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="850"
-            cy="150"
-            r="120"
-            stroke="rgba(255,255,255,0.04)"
-            strokeWidth="1"
-          />
-          <circle
-            cx="200"
-            cy="450"
-            r="80"
-            stroke="rgba(255,255,255,0.04)"
-            strokeWidth="1"
-          />
-        </svg>
-      </motion.div>
+      <GeometricBackground intensity="subtle" />
 
       <Container className="relative z-10">
         {/* Header */}

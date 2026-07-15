@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
+import { GeometricBackground } from "@/components/ui/GeometricBackground";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/utils";
@@ -255,6 +256,8 @@ export function Testimonios() {
       ref={sectionRef}
       className="relative overflow-hidden py-24 md:py-32"
     >
+      <GeometricBackground intensity="subtle" />
+
       <Container>
         {/* Header */}
         <motion.div
