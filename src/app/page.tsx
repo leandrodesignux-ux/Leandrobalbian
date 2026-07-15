@@ -6,6 +6,7 @@ import { Trayectoria } from "@/components/sections/Trayectoria";
 import { LoQueResuelvo } from "@/components/sections/LoQueResuelvo";
 import { Proceso } from "@/components/sections/Proceso";
 import { Testimonios } from "@/components/sections/Testimonios";
+import { FAQ } from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <LoQueResuelvo />
         <Proceso />
         <Testimonios />
+        <FAQ />
       </main>
       <Footer />
     </>
