@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Proyectos", href: "#proyectos" },
-  { label: "Biografía", href: "#biografia" },
+  { label: "Biografía", href: "/biografia" },
 ];
 
 export function Navbar() {
