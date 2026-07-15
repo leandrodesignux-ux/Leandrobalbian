@@ -3,7 +3,8 @@
 import { Container } from "@/components/ui/Container";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { motion } from "framer-motion";
-import { ArrowUpRight, User } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const drawLine = {
   hidden: { scaleX: 0, originX: 0 },
@@ -40,13 +41,13 @@ export function BiografiaSection() {
               viewport={viewportOnce}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Placeholder avatar */}
-              <div className="flex h-full w-full flex-col items-center justify-center gap-4 text-secondary">
-                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-bg ring-1 ring-border">
-                  <User className="h-10 w-10" />
-                </span>
-                <span className="text-sm">Tu foto aquí</span>
-              </div>
+              <Image
+                src="/BIOGRAFIA.jpg"
+                alt="Leandro Balbian — Senior Product Designer"
+                fill
+                sizes="(max-width: 1024px) 100vw, 400px"
+                className="object-cover"
+              />
             </motion.div>
 
             {/* L-frame */}

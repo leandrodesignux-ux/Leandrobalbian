@@ -3,8 +3,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { ArrowRight, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const industries = ["PropTech", "FinTech", "Minería", "Banca digital"];
 
@@ -110,13 +111,15 @@ export function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             >
-              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-elevated ring-1 ring-border">
-                <div className="flex flex-col items-center gap-3 text-secondary">
-                  <span className="flex h-24 w-24 items-center justify-center rounded-full bg-bg ring-1 ring-border">
-                    <User className="h-10 w-10" />
-                  </span>
-                  <span className="text-sm">Tu foto aquí</span>
-                </div>
+              <div className="relative h-full w-full overflow-hidden rounded-full bg-elevated ring-1 ring-border">
+                <Image
+                  src="/HERO.png"
+                  alt="Leandro Balbian — Senior Product Designer"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 360px, 420px"
+                  className="object-cover"
+                />
               </div>
             </motion.div>
           </div>
