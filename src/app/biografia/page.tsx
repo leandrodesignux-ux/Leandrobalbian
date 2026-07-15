@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BiografiaSection } from "@/components/sections/Biografia";
+import { Stack } from "@/components/sections/Stack";
 
 export const metadata = {
   title: "Biografía — Leandro Balbian",
@@ -14,6 +15,7 @@ export default function BiografiaPage() {
       <Navbar />
       <main className="flex flex-1 flex-col">
         <BiografiaSection />
+        <Stack />
       </main>
       <Footer />
     </>

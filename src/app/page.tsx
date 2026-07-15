@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Stack } from "@/components/sections/Stack";
 import { Proyectos } from "@/components/sections/Proyectos";
 import { Trayectoria } from "@/components/sections/Trayectoria";
 import { LoQueResuelvo } from "@/components/sections/LoQueResuelvo";
@@ -17,7 +16,6 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-1 flex-col">
         <Hero />
-        <Stack />
         <Proyectos />
         <Trayectoria />
         <LoQueResuelvo />
