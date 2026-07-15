@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Proyectos } from "@/components/sections/Proyectos";
 import { Trayectoria } from "@/components/sections/Trayectoria";
+import { LoQueResuelvo } from "@/components/sections/LoQueResuelvo";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Proyectos />
         <Trayectoria />
+        <LoQueResuelvo />
       </main>
       <Footer />
     </>
