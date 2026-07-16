@@ -9,39 +9,53 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { ProjectListItem } from "@/data/projects-list";
 
-const tagRotations = [-4, 2, 5, -2, 3, -5, 4, -3];
+interface ProjectPreviewProps {
+  video?: string;
+}
 
-function ProjectPreview() {
+function ProjectPreview({ video }: ProjectPreviewProps) {
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-elevated">
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent" />
-      <svg
-        className="absolute inset-0 h-full w-full"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <pattern
-            id="project-grid"
-            width="40"
-            height="40"
-            patternUnits="userSpaceOnUse"
+      {video ? (
+        <iframe
+          src={video}
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className="absolute inset-0 h-full w-full border-0"
+          title="Project preview"
+        />
+      ) : (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent" />
+          <svg
+            className="absolute inset-0 h-full w-full"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
           >
-            <path
-              d="M 40 0 L 0 0 0 40"
-              fill="none"
-              stroke="rgba(255,255,255,0.04)"
-              strokeWidth="1"
-            />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#project-grid)" />
-        <rect x="8%" y="28%" width="35%" height="6%" rx="4" fill="rgba(255,255,255,0.06)" />
-        <rect x="8%" y="40%" width="25%" height="6%" rx="4" fill="rgba(255,255,255,0.04)" />
-        <rect x="55%" y="28%" width="37%" height="42%" rx="8" fill="rgba(255,255,255,0.04)" />
-        <circle cx="14%" cy="74%" r="6" fill="#c8ff00" opacity="0.9" />
-        <rect x="20%" y="70%" width="28%" height="5%" rx="4" fill="rgba(200,255,0,0.15)" />
-      </svg>
+            <defs>
+              <pattern
+                id="project-grid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 40 0 L 0 0 0 40"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.04)"
+                  strokeWidth="1"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#project-grid)" />
+            <rect x="8%" y="28%" width="35%" height="6%" rx="4" fill="rgba(255,255,255,0.06)" />
+            <rect x="8%" y="40%" width="25%" height="6%" rx="4" fill="rgba(255,255,255,0.06)" />
+            <rect x="55%" y="28%" width="37%" height="42%" rx="8" fill="rgba(255,255,255,0.04)" />
+            <circle cx="14%" cy="74%" r="6" fill="#c8ff00" opacity="0.9" />
+            <rect x="20%" y="70%" width="28%" height="5%" rx="4" fill="rgba(200,255,0,0.15)" />
+          </svg>
+        </>
+      )}
     </div>
   );
 }
@@ -137,11 +151,11 @@ export function ProjectCardLarge({
           )}
 
           <div className="mt-6 flex flex-wrap gap-2">
-            {project.tags.map((tag, tagIndex) => (
+            {project.tags.map((tag) => (
               <Badge
                 key={tag}
                 variant="outline"
-                rotation={tagRotations[tagIndex % tagRotations.length]}
+                rotation={0}
                 className={cn(
                   "transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   isHovered &&
@@ -167,7 +181,7 @@ export function ProjectCardLarge({
             isHovered && "scale-[1.03]"
           )}
         >
-          <ProjectPreview />
+          <ProjectPreview video={project.video} />
         </div>
       </Link>
     </motion.article>
