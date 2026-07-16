@@ -7,6 +7,7 @@ export type Project = {
   status?: string;
   cta: string;
   href: string;
+  video?: string;
 };
 
 export const projects: Project[] = [
@@ -23,6 +24,8 @@ export const projects: Project[] = [
     tags: ["AI Governance", "Decision Design", "Data Analysis"],
     cta: "Explorar sistema",
     href: "/proyectos/siac",
+    video:
+      "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
   },
   {
     label: "Sistema de coordinación de agentes IA",
