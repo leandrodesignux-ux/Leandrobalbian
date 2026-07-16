@@ -1,11 +1,12 @@
 "use client";
 
-import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { ArrowUpRight, Asterisk } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const industries = ["PropTech", "FinTech", "Minería", "Banca digital"];
 
@@ -16,7 +17,26 @@ const stats = [
   "4 industrias",
 ];
 
+const highlightNotes: Record<string, string> = {
+  plataformas:
+    "Sistemas con miles de datos en tiempo real, no landing pages.",
+  decisiones:
+    "Decisiones críticas que antes tomaban reuniones y ahora toman un clic.",
+  segundos:
+    "Medido en reducción real de tiempo de respuesta en SIAC y Sentinel OS.",
+};
+
+function segmentClass(isActive: boolean, hasActive: boolean) {
+  return cn(
+    "transition-colors duration-300",
+    isActive ? "text-primary" : hasActive ? "text-primary/30" : "text-primary"
+  );
+}
+
 export function Hero() {
+  const [activeKey, setActiveKey] = useState<string | null>(null);
+  const hasActive = activeKey !== null;
+
   return (
     <section className="relative flex flex-1 items-center overflow-hidden py-12 md:py-24">
       <Container>
@@ -26,98 +46,132 @@ export function Hero() {
           animate="visible"
           className="flex flex-col"
         >
-          {/* Identity block */}
-          <motion.div
-            variants={fadeUp}
-            className="mb-6 flex flex-col gap-3"
-          >
-            <div className="inline-flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-xs font-bold text-bg">
-                LB
-              </span>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-primary">
-                  Leandro Balbian
-                </span>
-                <span className="text-xs text-secondary">
-                  Senior Product Designer
-                </span>
-              </div>
-            </div>
-            <span className="inline-flex items-center gap-1.5 text-sm text-secondary">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
-              Disponible para proyectos
-            </span>
-          </motion.div>
-
-          {/* Industry tabs */}
-          <motion.div
-            variants={fadeUp}
-            className="mb-8 flex flex-wrap items-center gap-3 text-xs tracking-wide text-secondary sm:text-sm"
-          >
-            {industries.map((industry) => (
-              <span
-                key={industry}
-                className="font-medium text-secondary"
-              >
-                {industry}
-              </span>
-            ))}
-          </motion.div>
-
-          {/* Main grid */}
+          {/* Main grid: identity, industries, headline, note/subtitle, buttons + photo */}
           <div className="grid items-center gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-            {/* Left column — text */}
+            {/* Left column — text block */}
             <div className="flex flex-col">
-              {/* Mobile headline without inline badges */}
-              <motion.h1
-                variants={fadeUp}
-                className="text-balance text-4xl font-medium leading-[1.15] tracking-tight text-primary sm:text-5xl lg:hidden"
-              >
-                <strong className="font-bold text-primary">Diseño</strong>{" "}
-                plataformas complejas para que las decisiones tomen{" "}
-                <strong className="font-bold text-primary">segundos</strong>, no
-                minutos.
-              </motion.h1>
-
-              {/* Desktop headline with inline badges */}
-              <motion.h1
-                variants={fadeUp}
-                className="hidden text-balance text-5xl font-medium leading-[1.1] tracking-tight text-primary md:text-6xl lg:block lg:text-7xl"
-              >
-                <strong className="font-bold text-primary">Diseño</strong>{" "}
-                plataformas{" "}
-                <Badge rotation={-1.5}>AI Governance</Badge> complejas para que
-                las decisiones <Badge rotation={1.5}>decisión crítica</Badge>{" "}
-                <Badge rotation={-2}>misión crítica</Badge> tomen{" "}
-                <strong className="font-bold text-primary">segundos</strong>
-                , no minutos.
-              </motion.h1>
-
-              {/* Mobile badges row */}
-              <motion.div
-                variants={fadeUp}
-                className="mt-5 flex flex-wrap gap-2 lg:hidden"
-              >
-                <Badge variant="filled" rotation={0} className="text-xs">
-                  AI Governance
-                </Badge>
-                <Badge variant="filled" rotation={0} className="text-xs">
-                  decisión crítica
-                </Badge>
-                <Badge variant="filled" rotation={0} className="text-xs">
-                  misión crítica
-                </Badge>
+              {/* Identity block */}
+              <motion.div variants={fadeUp} className="mb-6 flex flex-col gap-3">
+                <div className="inline-flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-xs font-bold text-bg">
+                    LB
+                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-semibold text-primary">
+                      Leandro Balbian
+                    </span>
+                    <span className="text-xs text-secondary">
+                      Senior Product Designer
+                    </span>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 text-sm text-secondary">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
+                  Disponible para proyectos
+                </span>
               </motion.div>
 
-              {/* Subtitle */}
-              <motion.p
+              {/* Industry tabs */}
+              <motion.div
                 variants={fadeUp}
-                className="mt-6 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
+                className="mb-8 flex flex-wrap items-center gap-3 text-xs tracking-wide text-secondary sm:text-sm"
               >
-                Senior Product Designer especializado en sistemas de alta
-                complejidad, PropTech, FinTech, banca digital y minería.
-              </motion.p>
+                {industries.map((industry) => (
+                  <span
+                    key={industry}
+                    className="font-medium text-secondary"
+                  >
+                    {industry}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* Headline with hover isolate effect */}
+              <motion.h1
+                variants={fadeUp}
+                className="text-balance text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+              >
+                <strong className={cn("font-bold", segmentClass(false, hasActive))}>
+                  Diseño
+                </strong>{" "}
+                <span
+                  className={cn(
+                    "lg:cursor-pointer",
+                    segmentClass(activeKey === "plataformas", hasActive)
+                  )}
+                  onMouseEnter={() => setActiveKey("plataformas")}
+                  onMouseLeave={() => setActiveKey(null)}
+                >
+                  plataformas complejas
+                </span>{" "}
+                para que las{" "}
+                <span
+                  className={cn(
+                    "lg:cursor-pointer",
+                    segmentClass(activeKey === "decisiones", hasActive)
+                  )}
+                  onMouseEnter={() => setActiveKey("decisiones")}
+                  onMouseLeave={() => setActiveKey(null)}
+                >
+                  decisiones
+                </span>{" "}
+                tomen{" "}
+                <span
+                  className={cn(
+                    "lg:cursor-pointer",
+                    segmentClass(activeKey === "segundos", hasActive)
+                  )}
+                  onMouseEnter={() => setActiveKey("segundos")}
+                  onMouseLeave={() => setActiveKey(null)}
+                >
+                  <strong
+                    className={cn(
+                      "font-bold",
+                      segmentClass(activeKey === "segundos", hasActive)
+                    )}
+                  >
+                    segundos
+                  </strong>
+                  , no minutos
+                </span>
+                .
+              </motion.h1>
+
+              {/* Contextual note / subtitle */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 min-h-[3.5rem]"
+              >
+                <AnimatePresence mode="wait">
+                  {activeKey ? (
+                    <motion.div
+                      key={activeKey}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex items-start gap-2"
+                    >
+                      <Asterisk className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                      <span className="max-w-2xl text-base italic leading-relaxed text-accent md:text-lg">
+                        {highlightNotes[activeKey]}
+                      </span>
+                    </motion.div>
+                  ) : (
+                    <motion.p
+                      key="subtitle"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      className="max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
+                    >
+                      Senior Product Designer especializado en sistemas de alta
+                      complejidad, PropTech, FinTech, banca digital y minería.
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </motion.div>
 
               {/* Buttons */}
               <motion.div
@@ -152,7 +206,7 @@ export function Hero() {
             {/* Right column — photo */}
             <motion.div
               variants={fadeUp}
-              className="relative mx-auto aspect-square w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[420px]"
+              className="relative mx-auto aspect-square w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px]"
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -163,7 +217,7 @@ export function Hero() {
                   alt="Leandro Balbian — Senior Product Designer"
                   fill
                   priority
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 360px, 420px"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 360px, 400px"
                   className="object-cover"
                 />
               </div>
