@@ -287,4 +287,129 @@ export const caseStudies: Record<string, CaseStudyData> = {
       },
     ],
   },
+  certifyx: {
+    id: "certifyx",
+    title: "CertifyX",
+    services: "UX/UI · Desarrollo full-stack",
+    category: "Industrial / Compliance",
+    client: "Proyecto personal",
+    liveUrl: "https://certify-ten-gamma.vercel.app/dashboard",
+    tagline: "Del papel al panel, sin fricción.",
+    intro:
+      "Sistema de gestión de certificaciones y competencias laborales para empresas industriales chilenas. Centraliza certificaciones SENCE, mallas curriculares, compliance legal y vencimientos en un dashboard operativo intuitivo.",
+    metrics: [
+      { value: "20", label: "Trabajadores demo" },
+      { value: "60", label: "Certificaciones" },
+      { value: "8", label: "Páginas funcionales" },
+      { value: "40+", label: "Componentes" },
+    ],
+    sections: [
+      {
+        id: "contexto",
+        title: "Contexto",
+        paragraphs: [
+          "CertifyX es una plataforma de gestión de certificaciones y competencias laborales orientada al ecosistema industrial chileno: minería, construcción y agroindustria. Reúne en un solo dashboard el control de certificaciones SENCE, mallas curriculares, compliance legal y vencimientos, reemplazando el caos de Excels y papeles por un panel de control en tiempo real.",
+        ],
+        hasImage: true,
+      },
+      {
+        id: "problema",
+        title: "El problema",
+        paragraphs: [
+          "Las empresas industriales chilenas controlan certificaciones y competencias de forma reactiva. Los vencimientos se detectan tarde, los Excels se desactualizan entre áreas y la falta de visibilidad real expone a la organización a riesgos legales, multas y paradas operativas.",
+        ],
+        bullets: [
+          {
+            title: "Fricciones detectadas",
+            items: [
+              "Certificaciones vencidas que generan riesgo legal y operativo.",
+              "Excels desactualizados y dispersos entre RRHH, operaciones y seguridad.",
+              "Multas por incumplimiento normativo (SENCE, ACHS, Mutual, etc.).",
+              "Falta de visibilidad del estado real de competencias de los trabajadores.",
+              "Dificultad para planificar capacitaciones y renovaciones a tiempo.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "investigacion",
+        title: "Investigación",
+        paragraphs: [
+          "Hice un mapeo del flujo de compliance industrial chileno: qué certificaciones exige SENCE, cómo las controlan actualmente las áreas de RRHH y seguridad, y qué puntos de decisión generan demoras o errores. El objetivo fue diseñar una única fuente de verdad que alerte antes de que algo se venza.",
+        ],
+        bullets: [
+          {
+            title: "Acciones de research",
+            items: [
+              "Análisis de certificaciones SENCE y normativas asociadas (ACHS, Mutual, IST, CChC).",
+              "Mapeo de estados de certificación: vigente, próxima a vencer, vencida, pendiente.",
+              "Definición de alertas críticas y reglas de escalación por riesgo legal.",
+              "Estudio de flujos de RRHH y operaciones para planificar renovaciones.",
+              "Prototipado de dashboard con KPIs visibles y acciones prioritarias.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "proceso",
+        title: "Proceso",
+        paragraphs: [
+          "Diseñé y desarrollé CertifyX como una aplicación completa con un sistema de diseño tokenizado y una arquitectura desacoplada. Cada vista responde a una necesidad operativa concreta: monitorear, gestionar, planificar y reportar. La prioridad fue mantener la claridad visual en un producto de alta densidad informativa.",
+        ],
+        bullets: [
+          {
+            title: "Decisiones clave",
+            items: [
+              "Stack moderno: React 19, TypeScript, Vite, Tailwind CSS y Framer Motion.",
+              "Estado global con Zustand y React Query para datos desacoplados.",
+              "Sistema de diseño tokenizado con paleta azul/navy y estados semánticos.",
+              "Más de 40 componentes reutilizables construidos desde cero.",
+              "Datos demo realistas para 3 empresas, 20 trabajadores y ~60 certificaciones.",
+              "Lazy loading y responsive para performance en cualquier dispositivo.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "solucion",
+        title: "La solución",
+        paragraphs: [
+          "CertifyX entrega una aplicación de 8 páginas interconectadas que mantienen un mismo lenguaje visual. Desde el dashboard operativo hasta los reportes exportables, cada pantalla permite tomar decisiones de compliance con claridad.",
+        ],
+        bullets: [
+          {
+            title: "Funcionalidades destacadas",
+            items: [
+              "Dashboard con KPIs, gauge de compliance, gráficos y alertas de vencimiento.",
+              "Gestión de trabajadores con vista grid/tabla, perfiles y timeline de certificaciones.",
+              "Certificaciones con filtros, tabs por estado, ordenación y exportación a CSV.",
+              "Mallas curriculares con calendario, progreso y rutas de aprendizaje visuales.",
+              "Reportes de cumplimiento con gráficos y exportación de resumen SENCE.",
+              "Command palette, atajos de teclado, toasts y accesibilidad con focus-visible.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "impacto",
+        title: "Impacto",
+        paragraphs: [
+          "CertifyX demuestra que un producto de compliance industrial puede ser claro, escalable y listo para producción. El sistema reduce el tiempo de búsqueda de certificaciones, anticipa vencimientos y da a los responsables una visión unificada del estado de competencias.",
+        ],
+        hasImage: true,
+      },
+      {
+        id: "reflexion",
+        title: "Reflexión",
+        paragraphs: [
+          "CertifyX me confirmó que la complejidad normativa no tiene por qué verse como complejidad visual. La clave está en traducir estados abstractos —vigente, por vencer, vencido— en señales claras y acciones inmediatas. Un buen producto de compliance no solo organiza datos: anticipa problemas antes de que se conviertan en riesgos.",
+        ],
+        hasImage: true,
+      },
+    ],
+  },
 };

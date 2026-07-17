@@ -43,4 +43,18 @@ export const projects: Project[] = [
     video:
       "https://player.vimeo.com/video/1210619287?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
   },
+  {
+    label: "Sistema de gestión de certificaciones",
+    title: "CertifyX",
+    description:
+      "Sistema de gestión de certificaciones y competencias para empresas industriales chilenas.",
+    stats: [
+      { value: "20", label: "Trabajadores demo" },
+      { value: "60", label: "Certificaciones" },
+      { value: "8", label: "Páginas" },
+    ],
+    tags: ["Industrial", "Compliance", "SENCE"],
+    cta: "Explorar sistema",
+    href: "/proyectos/certifyx",
+  },
 ];
