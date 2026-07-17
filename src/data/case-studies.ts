@@ -5,7 +5,7 @@ export type CaseStudySection = {
   bullets?: {
     title?: string;
     items: string[];
-  };
+  }[];
   hasImage?: boolean;
 };
 
@@ -55,15 +55,17 @@ export const caseStudies: Record<string, CaseStudyData> = {
         paragraphs: [
           "El sistema anterior cumplía su función técnica, pero no acompañaba la velocidad que la operación exigía. Estados poco diferenciados, tokens visuales inconsistentes y una jerarquía confusa hacían que los operadores tardaran más de lo necesario en interpretar una alerta crítica.",
         ],
-        bullets: {
-          title: "Fricciones detectadas",
-          items: [
-            "Estados de dispositivos con colores similares y poco contraste.",
-            "Falta de micro-feedback: acciones sin respuesta visual inmediata.",
-            "Densidad de información sin jerarquía clara.",
-            "Navegación entre alarmas, mapa y activos poco fluida.",
-          ],
-        },
+        bullets: [
+          {
+            title: "Fricciones detectadas",
+            items: [
+              "Estados de dispositivos con colores similares y poco contraste.",
+              "Falta de micro-feedback: acciones sin respuesta visual inmediata.",
+              "Densidad de información sin jerarquía clara.",
+              "Navegación entre alarmas, mapa y activos poco fluida.",
+            ],
+          },
+        ],
         hasImage: true,
       },
       {
@@ -72,15 +74,17 @@ export const caseStudies: Record<string, CaseStudyData> = {
         paragraphs: [
           "Hice una auditoría UX sobre el producto en uso. Revisé los flujos reales de los operadores, los tokens de diseño actuales y los puntos donde se tomaban decisiones críticas. El objetivo no era reemplazar todo, era eliminar lo que obstaculizaba la operación.",
         ],
-        bullets: {
-          title: "Acciones de research",
-          items: [
-            "Auditoría de tokens de color y estados operativos.",
-            "Mapeo de flujos de alarmas, seguimiento y gestión de usuarios.",
-            "Revisión de densidad UI y jerarquía tipográfica.",
-            "Identificación de puntos sin feedback visual.",
-          ],
-        },
+        bullets: [
+          {
+            title: "Acciones de research",
+            items: [
+              "Auditoría de tokens de color y estados operativos.",
+              "Mapeo de flujos de alarmas, seguimiento y gestión de usuarios.",
+              "Revisión de densidad UI y jerarquía tipográfica.",
+              "Identificación de puntos sin feedback visual.",
+            ],
+          },
+        ],
         hasImage: true,
       },
       {
@@ -89,15 +93,17 @@ export const caseStudies: Record<string, CaseStudyData> = {
         paragraphs: [
           "Diseñé un sistema de tokens propio alineado a estados operativos reales. Reorganicé la interfaz para que la información más importante se leyera primero, las acciones frecuentes estuvieran al alcance y cada interacción diera una respuesta visual inmediata.",
         ],
-        bullets: {
-          title: "Decisiones clave",
-          items: [
-            "Definición de tokens siac-* para cada estado operativo.",
-            "Tema oscuro industrial con contraste optimizado.",
-            "Componentes reutilizables para KPIs, tablas, mapas y alarmas.",
-            "Micro-animaciones con Framer Motion para feedback y performance percibida.",
-          ],
-        },
+        bullets: [
+          {
+            title: "Decisiones clave",
+            items: [
+              "Definición de tokens siac-* para cada estado operativo.",
+              "Tema oscuro industrial con contraste optimizado.",
+              "Componentes reutilizables para KPIs, tablas, mapas y alarmas.",
+              "Micro-animaciones con Framer Motion para feedback y performance percibida.",
+            ],
+          },
+        ],
         hasImage: true,
       },
       {
@@ -106,16 +112,18 @@ export const caseStudies: Record<string, CaseStudyData> = {
         paragraphs: [
           "Rediseñé 8 vistas interconectadas que mantienen un mismo lenguaje visual. El dashboard da una lectura inmediata del estado general, el mapa permite localizar cualquier incidente, las alarmas se gestionan en pocos pasos y la administración de usuarios simplifica el control de permisos.",
         ],
-        bullets: {
-          title: "Funcionalidades destacadas",
-          items: [
-            "Monitoreo en tiempo real con actualización automática.",
-            "Mapa interactivo con pines de estado y reproducción de CCTV simulada.",
-            "Gestión de alarmas con resolución y generación de reportes.",
-            "Timeline de eventos con metadatos técnicos.",
-            "IAM con roles, departamentos y permisos por zonas y cámaras.",
-          ],
-        },
+        bullets: [
+          {
+            title: "Funcionalidades destacadas",
+            items: [
+              "Monitoreo en tiempo real con actualización automática.",
+              "Mapa interactivo con pines de estado y reproducción de CCTV simulada.",
+              "Gestión de alarmas con resolución y generación de reportes.",
+              "Timeline de eventos con metadatos técnicos.",
+              "IAM con roles, departamentos y permisos por zonas y cámaras.",
+            ],
+          },
+        ],
         hasImage: true,
       },
       {
@@ -146,14 +154,84 @@ export const caseStudies: Record<string, CaseStudyData> = {
     tagline:
       "Un humano coordinando 50 agentes de IA autónomos. La interfaz que hace eso posible.",
     intro:
-      "Sentinel OS es un sistema de supervisión por excepción para flotas de agentes de IA. Permite a un operador humano coordinar decenas de agentes autónomos, intervenir cuando la confianza del sistema cae y trazar cada decisión hasta su origen.",
+      "Sentinel OS es un sistema de supervisión por excepción para flotas de agentes de IA. Fue diseñado para un escenario donde decenas de agentes autónomos toman decisiones operativas en paralelo —ventas, gestión de activos, mantenimiento y evaluación de inquilinos— mientras un único operador humano mantiene el control estratégico.",
+    metrics: [
+      { value: "50", label: "Agentes coordinados" },
+      { value: "6", label: "Estados operativos" },
+      { value: "4", label: "Tipos de agente" },
+      { value: "3", label: "Escenarios de riesgo" },
+      { value: "4", label: "Niveles de circuit breaker" },
+      { value: "segundos", label: "Tiempo de intervención" },
+    ],
     sections: [
       {
-        id: "reto",
-        title: "El reto",
+        id: "contexto",
+        title: "Contexto",
         paragraphs: [
-          "A medida que los agentes de IA toman más decisiones operativas, los equipos humanos pierden visibilidad sobre el porqué de cada acción. Sin una interfaz de confianza trazable, los operadores no pueden intervenir a tiempo ni auditar resultados.",
-          "El desafío era diseñar un sistema que mantuviera al humano en el centro sin ralentizar la autonomía de la IA: supervisión por excepción, circuit breakers y trazabilidad en cada paso.",
+          "Sentinel OS es un sistema de supervisión por excepción para flotas de agentes de IA. Fue diseñado para un escenario donde decenas de agentes autónomos toman decisiones operativas en paralelo —ventas, gestión de activos, mantenimiento y evaluación de inquilinos— mientras un único operador humano mantiene el control estratégico.",
+          "La interfaz nace de una pregunta concreta: ¿cómo puede una persona coordinar, confiar y corregir a 50 agentes de IA sin perderse en el ruido?",
+        ],
+        hasImage: true,
+      },
+      {
+        id: "problema",
+        title: "El problema",
+        paragraphs: [
+          "A medida que los agentes de IA toman más decisiones operativas, los equipos humanos pierden visibilidad sobre el porqué de cada acción. Sin una interfaz de confianza trazable, los operadores no pueden saber qué agente está tomando qué decisión en este momento, entender por qué un agente cambió de estado, intervenir a tiempo sin detener toda la operación ni auditar el origen de una decisión crítica.",
+        ],
+        bullets: [
+          {
+            title: "Fricciones detectadas",
+            items: [
+              "Exceso de autonomía opaco: los agentes actúan sin mostrar su confianza ni sus fuentes.",
+              "Falta de jerarquía de atención: todo alerta con la misma intensidad, nada prioriza al operador.",
+              "Sin trazabilidad operativa: cuando algo falla, no se puede reconstruir el camino de la decisión.",
+              "Intervención binaria: solo se puede dejar correr o parar todo; no existe un control gradual.",
+              "Riesgo en cascada invisible: un agente con datos corruptos puede propagar errores a toda la flota.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "investigacion",
+        title: "Investigación",
+        paragraphs: [
+          "Hice una investigación orientada a entender el modelo mental de un operador humano en sistemas de IA autónoma. El objetivo no era diseñar una consola más compleja, sino una superficie de confianza: la interfaz debe decirle al operador dónde mirar, por qué importa y qué puede hacer.",
+        ],
+        bullets: [
+          {
+            title: "Acciones de research",
+            items: [
+              "Mapeo de los 6 estados operativos del agente y sus transiciones posibles.",
+              "Análisis de los 4 perfiles de agente y sus umbrales de riesgo diferenciados.",
+              "Diseño de reglas de escalación por confianza, riesgo económico y dependencias cruzadas.",
+              "Definición de 3 escenarios críticos de demo para testear intervención humana.",
+              "Estudio de patrones de supervisión por excepción (exception-based monitoring) y circuit breakers.",
+              "Revisión de necesidades de auditoría XAI: pasos, fuentes, confianza, impacto.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "proceso",
+        title: "Proceso",
+        paragraphs: [
+          "Diseñé un sistema de estados y tokens que traduce la incertidumbre de la IA en señales visuales claras. Cada decisión se mide por confianza, riesgo económico y radio de impacto, y la interfaz prioriza automáticamente lo que requiere atención humana.",
+        ],
+        bullets: [
+          {
+            title: "Decisiones clave",
+            items: [
+              "Estados operativos diferenciados: idle, running, monitoring, intervention_required, circuit_open, suspended.",
+              "Autonomy dial global: un control para ajustar cuánta autonomía delega el operador.",
+              "Circuit breakers individuales: 4 niveles de contención por agente (solo leer, congelar, sin acceso, suspender).",
+              "Supervisión por excepción: solo se muestran decisiones que cruzan el umbral de confianza o riesgo.",
+              "Audit trail visual: cada decisión se descompone en pasos, fuentes, tokens y confianza histórica.",
+              "Diseño oscuro técnico: paleta de alto contraste, componentes de alta densidad, micro-feedback con Framer Motion.",
+            ],
+          },
         ],
         hasImage: true,
       },
@@ -161,8 +239,49 @@ export const caseStudies: Record<string, CaseStudyData> = {
         id: "solucion",
         title: "La solución",
         paragraphs: [
-          "Diseñé una interfaz de coordinación donde cada agente muestra su estado, confianza y próxima acción. El operador puede pausar, revertir o reasignar tareas con un solo clic, y cada intervención queda registrada en un trail de auditoría.",
-          "El sistema prioriza la atención humana usando circuit breakers automáticos: cuando la confianza cae por debajo de un umbral, la decisión pasa a revisión manual sin detener el resto de la flota.",
+          "Diseñé una interfaz de coordinación con 6 secciones interconectadas que mantienen un mismo lenguaje visual.",
+        ],
+        bullets: [
+          {
+            title: "Secciones interconectadas",
+            items: [
+              "Panel principal: lectura inmediata del estado de toda la flota.",
+              "Mis agentes: flota visualizada por tipo, estado, confianza y riesgo económico.",
+              "Para revisar: cola de excepciones priorizada por impacto económico, con aprobación en un clic.",
+              "Historial de decisiones: línea de tiempo de cada paso, fuentes consultadas y confianza histórica.",
+              "Configuración: control de autonomía, circuit breakers, escenarios de demo y parada de emergencia.",
+              "Cómo lo construí: documentación del proceso dentro del producto.",
+            ],
+          },
+          {
+            title: "Funcionalidades destacadas",
+            items: [
+              "Monitoreo en tiempo real de 12+ agentes con simulación de ticks cada 2 segundos.",
+              "Score de confianza por agente con sparklines y umbrales visuales.",
+              "Gestión de excepciones con aprobación individual y revertido.",
+              "Decision audit / XAI: trazabilidad completa del porqué de cada decisión.",
+              "Circuit breakers por agente y parada de emergencia por scope.",
+              "Escenarios de riesgo en vivo: price loop, screening bias, retry storm.",
+              "Intervención human-in-the-loop sin detener la flota completa.",
+            ],
+          },
+        ],
+        hasImage: true,
+      },
+      {
+        id: "impacto",
+        title: "Impacto",
+        paragraphs: [
+          "Sentinel OS reduce la incertidumbre del operador al gobernar una flota de IA. La atención se concentra en lo que realmente necesita revisión, mientras el sistema mantiene trazabilidad y control granular sobre cada agente.",
+        ],
+        hasImage: true,
+      },
+      {
+        id: "reflexion",
+        title: "Reflexión",
+        paragraphs: [
+          "Sentinel OS me recordó que el diseño de IA no se trata de hacer que la máquina parezca humana, sino de hacer transparente lo que la máquina está haciendo. La confianza en sistemas autónomos no nace de la autonomía total, sino de la capacidad de recuperar el control en el momento justo.",
+          "Una interfaz clara en AI Governance no es solo un dashboard: es el contrato visual entre el operador y la flota.",
         ],
         hasImage: true,
       },

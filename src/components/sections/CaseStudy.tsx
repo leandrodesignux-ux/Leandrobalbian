@@ -285,25 +285,33 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
                   </motion.p>
                 ))}
 
-                {section.bullets && (
-                  <motion.div variants={fadeUp} className="mt-8 max-w-3xl">
-                    {section.bullets.title && (
-                      <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-                        {section.bullets.title}
-                      </h3>
-                    )}
-                    <ul className="flex flex-col gap-3">
-                      {section.bullets.items.map((item, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start gap-3 text-base text-secondary"
-                        >
-                          <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-accent" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
+                {section.bullets && section.bullets.length > 0 && (
+                  <div className="flex flex-col gap-8">
+                    {section.bullets.map((bulletGroup, groupIndex) => (
+                      <motion.div
+                        key={groupIndex}
+                        variants={fadeUp}
+                        className="max-w-3xl"
+                      >
+                        {bulletGroup.title && (
+                          <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
+                            {bulletGroup.title}
+                          </h3>
+                        )}
+                        <ul className="flex flex-col gap-3">
+                          {bulletGroup.items.map((item, index) => (
+                            <li
+                              key={index}
+                              className="flex items-start gap-3 text-base text-secondary"
+                            >
+                              <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-accent" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    ))}
+                  </div>
                 )}
 
                 {section.hasImage && (
@@ -336,7 +344,12 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
 
               <motion.div
                 variants={fadeUp}
-                className="grid grid-cols-2 divide-x divide-border border-y border-border py-6 sm:grid-cols-4"
+                className={cn(
+                  "grid divide-x divide-border border-y border-border py-6",
+                  study.metrics.length > 4
+                    ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
+                    : "grid-cols-2 sm:grid-cols-4"
+                )}
               >
                 {study.metrics.map((stat) => (
                   <div
