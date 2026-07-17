@@ -294,7 +294,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
     services: "UX/UI · Desarrollo full-stack",
     category: "Industrial / Compliance",
     client: "Proyecto personal",
-    liveUrl: "https://certify-ten-gamma.vercel.app/dashboard",
+    liveUrl: "https://certify-ten-gamma.vercel.app/",
     tagline: "Del papel al panel, sin fricción.",
     intro:
       "Sistema de gestión de certificaciones y competencias laborales para empresas industriales chilenas. Centraliza certificaciones SENCE, mallas curriculares, compliance legal y vencimientos en un dashboard operativo intuitivo.",
