@@ -29,7 +29,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
     services: "UX/UI · Sistemas de decisión",
     category: "PropTech / Seguridad industrial / IoT",
     client: "Confidencial",
-    liveUrl: "#",
+    liveUrl: "https://siac-dashboard.vercel.app/",
     tagline:
       "Rediseño de plataforma de monitoreo para 20.347 activos críticos en tiempo real.",
     intro:
