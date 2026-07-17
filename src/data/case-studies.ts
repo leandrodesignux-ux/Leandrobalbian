@@ -150,7 +150,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
     services: "UX/UI · AI Governance",
     category: "AI Governance",
     client: "Confidencial",
-    liveUrl: "#",
+    liveUrl: "https://sentinel-os-pearl.vercel.app/",
     tagline:
       "Un humano coordinando 50 agentes de IA autónomos. La interfaz que hace eso posible.",
     intro:
