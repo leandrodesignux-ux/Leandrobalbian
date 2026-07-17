@@ -87,6 +87,33 @@ function PlaceholderImage({ className }: { className?: string }) {
   );
 }
 
+function VideoPreview({
+  video,
+  className,
+  title,
+}: {
+  video: string;
+  className?: string;
+  title?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative w-full overflow-hidden rounded-2xl border border-border bg-elevated",
+        className
+      )}
+    >
+      <iframe
+        src={video}
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        className="absolute inset-0 h-full w-full border-0"
+        title={title || "Project preview"}
+      />
+    </div>
+  );
+}
+
 function MetadataItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-1">
@@ -246,7 +273,15 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
               </motion.p>
 
               <motion.div variants={fadeUp} className="mt-10">
-                <PlaceholderImage className="aspect-video" />
+                {study.video ? (
+                  <VideoPreview
+                    video={study.video}
+                    title={`${study.title} preview`}
+                    className="aspect-video"
+                  />
+                ) : (
+                  <PlaceholderImage className="aspect-video" />
+                )}
               </motion.div>
             </motion.div>
           </div>

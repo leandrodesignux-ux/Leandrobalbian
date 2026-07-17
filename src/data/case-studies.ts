@@ -19,6 +19,7 @@ export type CaseStudyData = {
   tagline: string;
   intro: string;
   metrics?: { value: string; label: string }[];
+  video?: string;
   sections: CaseStudySection[];
 };
 
@@ -303,6 +304,8 @@ export const caseStudies: Record<string, CaseStudyData> = {
       { value: "8", label: "Páginas funcionales" },
       { value: "40+", label: "Componentes" },
     ],
+    video:
+      "https://player.vimeo.com/video/1210853466?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
     sections: [
       {
         id: "contexto",
