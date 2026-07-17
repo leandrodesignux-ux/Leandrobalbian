@@ -12,16 +12,16 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    label: "Sistema de optimización industrial",
+    label: "Sistema de supervisión operativa",
     title: "SIAC",
     description:
-      "Un operador. 1.284 alertas. 24 críticas. Diseñado para que la decisión tome segundos.",
+      "Rediseño de plataforma de monitoreo para 20.347 activos críticos en tiempo real.",
     stats: [
       { value: "1.284", label: "Alertas procesadas" },
       { value: "4.2m", label: "Tiempo de respuesta" },
       { value: "98.2%", label: "Tasa de resolución" },
     ],
-    tags: ["AI Governance", "Decision Design", "Data Analysis"],
+    tags: ["PropTech", "Seguridad industrial", "IoT"],
     cta: "Explorar sistema",
     href: "/proyectos/siac",
     video:

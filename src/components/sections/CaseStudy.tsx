@@ -1,7 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
 import {
   fadeUp,
@@ -11,7 +11,7 @@ import {
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import type { CaseStudyData } from "@/data/case-studies";
+import type { CaseStudyData, CaseStudySection } from "@/data/case-studies";
 import type { ProjectListItem } from "@/data/projects-list";
 
 interface CaseStudyProps {
@@ -98,7 +98,66 @@ function MetadataItem({ label, value }: { label: string; value: string }) {
   );
 }
 
+function SectionNav({
+  sections,
+  activeId,
+  onNavigate,
+}: {
+  sections: CaseStudySection[];
+  activeId: string | null;
+  onNavigate: (id: string) => void;
+}) {
+  return (
+    <nav className="flex flex-col gap-3">
+      {sections.map((section) => (
+        <button
+          key={section.id}
+          type="button"
+          onClick={() => onNavigate(section.id)}
+          className={cn(
+            "text-left text-xs font-medium uppercase tracking-widest transition-colors",
+            activeId === section.id
+              ? "text-primary"
+              : "text-secondary hover:text-primary"
+          )}
+        >
+          {section.title}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
 export function CaseStudy({ study, related }: CaseStudyProps) {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+    );
+
+    study.sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [study.sections]);
+
+  const handleNavigate = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <article className="flex flex-1 flex-col">
       {/* Hero header */}
@@ -142,6 +201,14 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
               </motion.div>
 
               <motion.div variants={fadeUp}>
+                <SectionNav
+                  sections={study.sections}
+                  activeId={activeSection}
+                  onNavigate={handleNavigate}
+                />
+              </motion.div>
+
+              <motion.div variants={fadeUp}>
                 <a
                   href={study.liveUrl}
                   target="_blank"
@@ -178,10 +245,7 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
                 {study.intro}
               </motion.p>
 
-              <motion.div
-                variants={fadeUp}
-                className="mt-10"
-              >
+              <motion.div variants={fadeUp} className="mt-10">
                 <PlaceholderImage className="aspect-video" />
               </motion.div>
             </motion.div>
@@ -189,73 +253,69 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
         </Container>
       </section>
 
-      {/* Challenge */}
-      <section className="py-16 md:py-24">
-        <Container>
-          <motion.div
-            className="grid gap-12 lg:grid-cols-[240px_1fr] lg:gap-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeUp}>
-              <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
-                {study.challenge.title}
-              </h2>
-            </motion.div>
-
-            <div className="flex flex-col">
-              {study.challenge.paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  variants={fadeUp}
-                  className="max-w-3xl text-base leading-relaxed text-secondary md:text-lg"
-                >
-                  {paragraph}
-                </motion.p>
-              ))}
-              <motion.div variants={fadeUp} className="mt-10">
-                <PlaceholderImage className="aspect-video" />
+      {/* Sections */}
+      {study.sections.map((section) => (
+        <section
+          key={section.id}
+          id={section.id}
+          className="scroll-mt-24 py-16 md:py-24"
+        >
+          <Container>
+            <motion.div
+              className="grid gap-12 lg:grid-cols-[240px_1fr] lg:gap-16"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              variants={staggerContainer}
+            >
+              <motion.div variants={fadeUp}>
+                <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
+                  {section.title}
+                </h2>
               </motion.div>
-            </div>
-          </motion.div>
-        </Container>
-      </section>
 
-      {/* Solution */}
-      <section className="py-16 md:py-24">
-        <Container>
-          <motion.div
-            className="grid gap-12 lg:grid-cols-[240px_1fr] lg:gap-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeUp}>
-              <h2 className="text-sm font-medium uppercase tracking-widest text-accent">
-                {study.solution.title}
-              </h2>
+              <div className="flex flex-col">
+                {section.paragraphs.map((paragraph, index) => (
+                  <motion.p
+                    key={index}
+                    variants={fadeUp}
+                    className="max-w-3xl text-base leading-relaxed text-secondary md:text-lg"
+                  >
+                    {paragraph}
+                  </motion.p>
+                ))}
+
+                {section.bullets && (
+                  <motion.div variants={fadeUp} className="mt-8 max-w-3xl">
+                    {section.bullets.title && (
+                      <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
+                        {section.bullets.title}
+                      </h3>
+                    )}
+                    <ul className="flex flex-col gap-3">
+                      {section.bullets.items.map((item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 text-base text-secondary"
+                        >
+                          <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-accent" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+
+                {section.hasImage && (
+                  <motion.div variants={fadeUp} className="mt-10">
+                    <PlaceholderImage className="aspect-video" />
+                  </motion.div>
+                )}
+              </div>
             </motion.div>
-
-            <div className="flex flex-col">
-              {study.solution.paragraphs.map((paragraph, index) => (
-                <motion.p
-                  key={index}
-                  variants={fadeUp}
-                  className="max-w-3xl text-base leading-relaxed text-secondary md:text-lg"
-                >
-                  {paragraph}
-                </motion.p>
-              ))}
-              <motion.div variants={fadeUp} className="mt-10">
-                <PlaceholderImage className="aspect-video" />
-              </motion.div>
-            </div>
-          </motion.div>
-        </Container>
-      </section>
+          </Container>
+        </section>
+      ))}
 
       {/* Metrics */}
       {study.metrics && study.metrics.length > 0 && (
@@ -276,12 +336,12 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
 
               <motion.div
                 variants={fadeUp}
-                className="grid grid-cols-3 divide-x divide-border border-y border-border py-6"
+                className="grid grid-cols-2 divide-x divide-border border-y border-border py-6 sm:grid-cols-4"
               >
                 {study.metrics.map((stat) => (
                   <div
                     key={stat.label}
-                    className="px-2 text-center first:pl-0 last:pr-0 sm:px-4"
+                    className="px-2 py-4 text-center first:pl-0 last:pr-0 sm:px-4"
                   >
                     <div className="text-2xl font-bold tracking-tight text-primary sm:text-3xl md:text-4xl">
                       {stat.value}

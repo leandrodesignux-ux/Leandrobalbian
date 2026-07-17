@@ -17,7 +17,7 @@ export const projectsList: ProjectListItem[] = [
   {
     id: "siac",
     label: "Sistema de supervisión operativa",
-    sector: "PropTech",
+    sector: "PropTech / Seguridad industrial / IoT",
     title: "SIAC",
     description:
       "Rediseño de plataforma de monitoreo para 20.347 activos críticos en tiempo real.",
@@ -26,7 +26,7 @@ export const projectsList: ProjectListItem[] = [
       { value: "4.2m", label: "Tiempo de respuesta" },
       { value: "98.2%", label: "Tasa de resolución" },
     ],
-    tags: ["AI Governance", "Decision Design", "Real-time Data"],
+    tags: ["Decision Design", "Real-time Data", "IoT"],
     ctaText: "Explorar sistema",
     href: "/proyectos/siac",
     featured: true,
