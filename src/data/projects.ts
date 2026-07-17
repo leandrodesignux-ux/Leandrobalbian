@@ -31,14 +31,13 @@ export const projects: Project[] = [
     label: "Sistema de coordinación de agentes IA",
     title: "SENTINEL OS",
     description:
-      "Un humano coordinando 50 agentes de IA autónomos. La interfaz que hace eso posible.",
-    status: "Sistema en producción",
-    tags: [
-      "Supervisión por excepción",
-      "Confianza trazable",
-      "Circuit breakers",
-      "Decisión correcta",
+      "Diseño de sistema de coordinación para 50 agentes de IA autónomos con supervisión por excepción y confianza trazable.",
+    stats: [
+      { value: "50", label: "Agentes coordinados" },
+      { value: "6", label: "Estados operativos" },
+      { value: "segundos", label: "Tiempo de intervención" },
     ],
+    tags: ["AI Governance", "Agentes autónomos", "Human-in-the-loop"],
     cta: "Explorar sistema",
     href: "/proyectos/sentinel-os",
     video:

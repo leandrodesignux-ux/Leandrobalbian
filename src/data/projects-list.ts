@@ -39,13 +39,13 @@ export const projectsList: ProjectListItem[] = [
     sector: "AI Governance",
     title: "SENTINEL OS",
     description:
-      "Un humano coordinando 50 agentes de IA autónomos. La interfaz que hace eso posible.",
-    tags: [
-      "Supervisión por excepción",
-      "Confianza trazable",
-      "Circuit breakers",
-      "Decisión correcta",
+      "Diseño de sistema de coordinación para 50 agentes de IA autónomos con supervisión por excepción y confianza trazable.",
+    stats: [
+      { value: "50", label: "Agentes coordinados" },
+      { value: "6", label: "Estados operativos" },
+      { value: "segundos", label: "Tiempo de intervención" },
     ],
+    tags: ["AI Governance", "Agentes autónomos", "Human-in-the-loop"],
     ctaText: "Explorar sistema",
     href: "/proyectos/sentinel-os",
     video:
