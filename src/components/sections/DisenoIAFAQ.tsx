@@ -8,22 +8,22 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Qué es \"vibe coding\" en este contexto?",
+    question: "¿Cómo se integra esto con nuestro proceso de desarrollo actual?",
     answer:
-      "Usar IA generativa para construir prototipos funcionales rápidamente, iterando en código real en vez de en mockups estáticos.",
+      "El prototipo funcional es un paso previo a tu pipeline de desarrollo normal — no lo reemplaza, reduce el riesgo de construir algo que no valida la lógica.",
   },
   {
-    question: "¿Esto reemplaza al equipo de desarrollo?",
+    question: "¿Cuánto tiempo de desarrollo nos ahorra en la práctica?",
     answer:
-      "No. El prototipo valida la idea antes de que ingeniería la construya en la arquitectura de producción definitiva — reduce el riesgo, no reemplaza el trabajo final.",
+      "El track record confirmado es +25% de eficiencia de equipo al integrar IA en el proceso de diseño — el ahorro exacto en tu caso depende de la complejidad del flujo a validar.",
   },
   {
-    question: "¿Qué stack usan para prototipar?",
+    question: "¿Cómo deciden qué decisiones de un agente de IA necesitan supervisión humana?",
     answer:
-      "Next.js y Tailwind, más herramientas de IA generativa para acelerar la construcción.",
+      "Se mapean los puntos de mayor riesgo del flujo (Supervisión por Excepción) y se diseña fricción calibrada solo ahí, sin frenar la automatización en el resto.",
   },
   {
-    question: "¿Puedo ver un prototipo real antes de contratar?",
+    question: "¿Puedo ver un prototipo funcional real antes de contratar?",
     answer:
       "Sí, el caso del Supply Agent de WhatsApp (Spot2) está disponible como referencia.",
   },

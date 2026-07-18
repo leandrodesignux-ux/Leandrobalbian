@@ -28,9 +28,10 @@ export function DisenoIASection01() {
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Un mockup en Figma no prueba cómo se va a sentir un flujo complejo
-              en producción. Cuando una idea necesita sentirse real, la construyo
-              como simulación interactiva en Next.js — no como maqueta estática.
+              Un mockup no prueba nada sobre cómo se va a comportar un flujo en
+              producción. Cuando tu equipo de ingeniería necesita saber si una
+              lógica funciona antes de comprometerse a construirla, la pruebo en
+              código real — no en una interpretación.
             </p>
 
             <ul className="flex flex-col gap-4">

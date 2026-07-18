@@ -43,24 +43,24 @@ export function DisenoIAWhy() {
             variants={fadeUp}
             className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
           >
-            — ¿Por qué diseñar con IA?
+            — ¿Por qué Design Engineering?
           </motion.p>
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
-          >
-            Validar antes de construir
-          </motion.h2>
+            <motion.h2
+              variants={fadeUp}
+              className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
+            >
+              Velocidad de desarrollo sin riesgo
+            </motion.h2>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
-          >
-            Ideal si tu equipo de ingeniería es un recurso escaso y no se puede dar
-            el lujo de construir algo completo solo para descubrir que la lógica no
-            funciona.
-          </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
+            >
+              Ideal si tu roadmap está más limitado por la capacidad de tu equipo
+              de ingeniería que por falta de ideas, o si ya estás integrando IA en
+              tu producto y todavía no diseñaste cómo se audita.
+            </motion.p>
         </motion.div>
 
         <motion.div

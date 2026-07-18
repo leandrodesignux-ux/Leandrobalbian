@@ -84,8 +84,8 @@ export function DisenoIASection02() {
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              No es una promesa — ya integré IA en procesos de diseño de un equipo
-              completo, con resultado medido.
+              No es una apuesta a que la IA generativa &ldquo;algún día&rdquo; acelere tu
+              roadmap. Ya lo hice, con un equipo completo, con resultado medido.
             </p>
 
             <div className="rounded-2xl border border-accent/30 bg-accent/5 p-5">

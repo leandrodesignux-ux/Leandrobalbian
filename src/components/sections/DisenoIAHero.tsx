@@ -41,10 +41,11 @@ export function DisenoIAHero() {
               </h1>
 
               <p className="max-w-xl text-lg leading-relaxed text-secondary md:text-xl">
-                Prototipo con IA generativa hasta que la idea se pueda probar en
-                código real — transiciones, lógica de permisos, estados de carga —
-                antes de que tu equipo de ingeniería invierta una sola hora en
-                construirlo. Velocidad de desarrollo sin sacrificar calidad.
+                Cada semana que tu equipo de ingeniería pierde interpretando un
+                mockup de Figma, o resolviendo a último momento cómo se comporta
+                un agente de IA en producción, es velocidad de desarrollo que no
+                vuelve. Prototipo en código real y diseño la capa de confianza de
+                tus sistemas de IA — antes de que lleguen a producción.
               </p>
 
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">

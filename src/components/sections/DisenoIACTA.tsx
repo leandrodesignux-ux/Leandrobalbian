@@ -22,21 +22,21 @@ export function DisenoIACTA() {
                 Siguiente paso
               </p>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-                Prototipo Funcional
+                Design Engineering
               </h2>
               <p className="text-base leading-relaxed text-secondary md:text-lg">
-                Contame la idea que necesitás validar. En la primera sesión
-                definimos qué parte del flujo vale la pena probar en código antes de
-                construirla en serio.
+                Contame el flujo o sistema de IA que necesitás validar. En la
+                primera sesión definimos si el próximo paso es un prototipo
+                funcional, una capa de gobernanza, o ambos.
               </p>
 
               <div className="flex flex-col gap-3">
                 <p className="text-sm font-semibold text-primary">Incluye:</p>
                 <ul className="flex flex-col gap-2">
                   {[
-                    "Definición del flujo crítico a prototipar",
-                    "Stack recomendado (Next.js + Tailwind + IA)",
-                    "Estimación de alcance y entregables",
+                    "Definición del flujo o agente a validar",
+                    "Prototipo funcional en código real",
+                    "Diseño de capa de confianza / HITL (si aplica)",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-secondary">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent" />
