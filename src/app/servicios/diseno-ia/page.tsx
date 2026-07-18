@@ -8,7 +8,7 @@ import { DisenoIAFAQ } from "@/components/sections/DisenoIAFAQ";
 import { DisenoIACTA } from "@/components/sections/DisenoIACTA";
 
 export const metadata = {
-  title: "Diseño con IA — Prototipado Funcional — Leandro Balbian",
+  title: "Design Engineering — Prototipado Funcional — Leandro Balbian",
   description:
     "Prototipo con IA generativa en código real. Valida flujos complejos antes de que ingeniería invierta una sola hora en construirlos.",
 };

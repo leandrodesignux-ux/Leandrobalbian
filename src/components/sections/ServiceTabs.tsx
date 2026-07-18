@@ -2,32 +2,32 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Compass, Layers, Sparkles, BookOpen, ArrowRight } from "lucide-react";
+import { Compass, Layers, Sparkles, Route, ArrowRight } from "lucide-react";
 
 const services = [
   {
     id: "consultoria-ux",
-    label: "Consultoría UX",
+    label: "Diagnóstico de Producto",
     href: "/servicios/consultoria-ux",
     icon: Compass,
   },
   {
     id: "diseno-producto-complejo",
-    label: "Diseño de Producto Complejo",
+    label: "Diseño End-to-End",
     href: "/servicios/diseno-producto-complejo",
     icon: Layers,
   },
   {
     id: "diseno-ia",
-    label: "Diseño con IA",
+    label: "Design Engineering",
     href: "/servicios/diseno-ia",
     icon: Sparkles,
   },
   {
     id: "ux-writing-elearning",
-    label: "UX Writing & E-learning",
+    label: "User Flows & Onboarding",
     href: "/servicios/ux-writing-elearning",
-    icon: BookOpen,
+    icon: Route,
   },
 ];
 

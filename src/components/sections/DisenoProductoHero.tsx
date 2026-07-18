@@ -3,6 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { NetworkBackground } from "@/components/ui/NetworkBackground";
 import { ServiceTabs } from "./ServiceTabs";
+import { PalancaBadge } from "./PalancaTags";
 import { getAccessibleVariants } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { motion } from "framer-motion";
@@ -30,9 +31,13 @@ export function DisenoProductoHero() {
                 — Servicios
               </p>
 
+              <div className="flex flex-wrap items-center gap-2">
+                <PalancaBadge id="velocidad" />
+              </div>
+
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
-                <em className="font-serif not-italic text-accent">Diseño</em> de
-                Producto Complejo
+                <em className="font-serif not-italic text-accent">Diseño</em>{" "}
+                End-to-End
               </h1>
 
               <p className="max-w-xl text-lg leading-relaxed text-secondary md:text-xl">
@@ -56,7 +61,7 @@ export function DisenoProductoHero() {
                   href="#contacto"
                   className="inline-flex items-center justify-center rounded-full border border-border bg-transparent px-6 py-3.5 text-sm font-medium text-primary transition-colors duration-200 hover:border-accent/30 hover:text-accent"
                 >
-                  Agendar auditoría
+                  Agendar diagnóstico
                 </a>
               </div>
             </motion.div>

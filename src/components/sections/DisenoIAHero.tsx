@@ -3,6 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { NetworkBackground } from "@/components/ui/NetworkBackground";
 import { ServiceTabs } from "./ServiceTabs";
+import { PalancaBadge } from "./PalancaTags";
 import { getAccessibleVariants } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { motion } from "framer-motion";
@@ -30,15 +31,20 @@ export function DisenoIAHero() {
                 — SERVICIOS
               </p>
 
+              <div className="flex flex-wrap items-center gap-2">
+                <PalancaBadge id="velocidad" />
+              </div>
+
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
-                Diseño con{" "}
-                <em className="font-serif not-italic text-accent">IA</em>
+                <em className="font-serif not-italic text-accent">Design</em>{" "}
+                Engineering
               </h1>
 
               <p className="max-w-xl text-lg leading-relaxed text-secondary md:text-xl">
                 Prototipo con IA generativa hasta que la idea se pueda probar en
                 código real — transiciones, lógica de permisos, estados de carga —
-                antes de que ingeniería invierta una sola hora en construirlo.
+                antes de que tu equipo de ingeniería invierta una sola hora en
+                construirlo. Velocidad de desarrollo sin sacrificar calidad.
               </p>
 
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">

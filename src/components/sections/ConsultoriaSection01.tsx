@@ -31,14 +31,14 @@ export function ConsultoriaSection01() {
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
               <em className="font-serif not-italic text-accent">Reencuadre</em>{" "}
-              y Sistema de Medición
+              del Encargo
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Cuando el encargo es &ldquo;cuestioná todo&rdquo;, no salgo a tocar botones.
-              Primero traduzco el pedido ambiguo en una pregunta concreta y
-              medible, y armo la infraestructura de datos necesaria para
-              responderla.
+              Construir antes de entender es el error más caro que comete un equipo
+              de producto. Traduzco el pedido ambiguo en una pregunta medible y
+              armo la infraestructura de datos necesaria para responderla antes
+              de tocar una interfaz.
             </p>
 
             <ul className="flex flex-col gap-4">

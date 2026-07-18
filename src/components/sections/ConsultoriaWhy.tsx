@@ -22,7 +22,7 @@ const differentials = [
     icon: Target,
     title: "Ejecutable, no infinito",
     description:
-      "El análisis termina en una decisión con fecha, no en más análisis. Una palanca, no un mapa interminable.",
+      "De todo el análisis destilo una sola palanca con hipótesis, métrica y fecha. No un backlog de posibles mejoras.",
   },
   {
     icon: Users,
@@ -43,27 +43,28 @@ export function ConsultoriaWhy() {
           viewport={viewportOnce}
           variants={staggerContainer}
         >
-          <motion.p
-            variants={fadeUp}
-            className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
-          >
-            — ¿Por qué consultoría?
-          </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
+            >
+              — ¿Por qué diagnóstico antes que rediseño?
+            </motion.p>
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
-          >
-            El diagnóstico que tu equipo puede ejecutar
-          </motion.h2>
+            <motion.h2
+              variants={fadeUp}
+              className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
+            >
+              El diagnóstico que tu equipo necesita antes de construir
+            </motion.h2>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
-          >
-            Ideal si ya tenés equipo de producto/diseño pero necesitás dirección
-            estratégica basada en causa, no en corazonada.
-          </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
+            >
+              Si ya tenés equipo de producto o diseño pero el roadmap se basa en
+              hipótesis no validadas, necesitás dirección estratégica con causa
+              raíz, no más features.
+            </motion.p>
         </motion.div>
 
         <motion.div

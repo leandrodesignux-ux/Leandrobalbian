@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "¿Cómo es el handoff a desarrollo?",
     answer:
-      "Prototipo funcional cuando el proyecto lo permite (ver servicio de Diseño con IA), o especificaciones detalladas en Figma con el sistema de diseño documentado.",
+      "Prototipo funcional cuando el proyecto lo permite (ver servicio de Design Engineering), o especificaciones detalladas en Figma con el sistema de diseño documentado.",
   },
 ];
 

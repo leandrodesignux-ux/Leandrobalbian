@@ -22,12 +22,13 @@ export function ConsultoriaCTA() {
               Siguiente paso
             </p>
             <h2 className="text-balance text-4xl font-bold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-              Diagnóstico UX
+              Diagnóstico de Producto
             </h2>
             <p className="max-w-md text-base text-primary/80 md:text-lg">
-              Agendá una sesión de diagnóstico. Revisamos tu situación actual,
-              definimos qué mide realmente tu producto, y te muestro por dónde
-              empezar.
+              Agendá una sesión exploratoria de 30 minutos. Revisamos tu
+              situación actual, identificamos qué está midiendo realmente tu
+              producto, y definimos si el diagnóstico tiene sentido para tu
+              equipo.
             </p>
           </motion.div>
 

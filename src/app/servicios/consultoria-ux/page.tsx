@@ -8,9 +8,9 @@ import { ConsultoriaFAQ } from "@/components/sections/ConsultoriaFAQ";
 import { ConsultoriaCTA } from "@/components/sections/ConsultoriaCTA";
 
 export const metadata = {
-  title: "Consultoría UX & Diagnóstico de Producto — Leandro Balbian",
+  title: "Diagnóstico de Producto — Leandro Balbian",
   description:
-    "Diagnóstico de producto especializado para founders y Product Leads. Entendé por qué tu plataforma pierde conversión antes de rediseñar nada.",
+    "Diagnóstico causal para founders y Product Leads de SaaS LATAM. Encontrá por qué tu producto pierde conversión antes de invertir en un rediseño.",
 };
 
 export default function ConsultoriaUXPage() {

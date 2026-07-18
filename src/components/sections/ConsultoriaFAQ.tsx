@@ -8,24 +8,29 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Qué incluye la consultoría UX?",
+    question: "¿Cómo se contrata un diagnóstico?",
     answer:
-      "Diagnóstico causal de tu producto: análisis del sistema de medición actual (o su construcción si no existe), cruce con stakeholders internos, y una palanca ejecutable con hipótesis, métrica y fecha.",
+      "Sin compromiso. Agendás una sesión exploratoria de 30 minutos donde alineamos expectativas, definimos el alcance y te explico exactamente qué vas a recibir. Si hay fit, arrancamos con un engagement de 2 a 3 semanas.",
   },
   {
-    question: "¿En qué se diferencia esto de un rediseño tradicional?",
+    question: "¿Mi equipo interno puede ejecutar lo que recomiende el diagnóstico?",
     answer:
-      "No empiezo por la interfaz. Empiezo por entender qué decisión de negocio se está tratando de mover, y solo llego al diseño cuando el diagnóstico lo justifica.",
+      "Sí, ese es el modelo ideal. El diagnóstico entrega una palanca ejecutable con hipótesis, métrica y fecha. Tu equipo de producto o diseño la implementa; yo me mantengo disponible para ajustes y validación.",
   },
   {
-    question: "¿Trabajás con mi equipo interno de diseño/producto?",
+    question: "¿Esto reemplaza un rediseño completo?",
     answer:
-      "Sí, mi rol es aportar el diagnóstico causal y la dirección; la ejecución puede quedar en tu equipo o en mí, según lo que definamos.",
+      "No, esto es lo que hacés antes de rediseñar. Muchos productos no necesitan un rediseño completo sino una intervención quirúrgica basada en causa. El diagnóstico te dice exactamente qué mover y por qué.",
   },
   {
-    question: "¿Cuánto dura un diagnóstico?",
+    question: "¿En qué timeline se ven resultados?",
     answer:
-      "Depende de la complejidad del sistema, pero el sistema de medición y el primer hallazgo causal suelen estar en 2-3 semanas.",
+      "El diagnóstico completo toma 2 a 3 semanas. La implementación de la palanca depende del alcance, pero está diseñada para ser ejecutable en sprints cortos, no en meses.",
+  },
+  {
+    question: "¿Qué pasa después del diagnóstico?",
+    answer:
+      "Podemos seguir con la implementación, validar la hipótesis con un experimento rápido, o escalar a un engagement más largo. No hay compromiso más allá del diagnóstico.",
   },
 ];
 
@@ -53,7 +58,7 @@ export function ConsultoriaFAQ() {
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Todo sobre{" "}
-            <em className="font-serif not-italic text-accent">Consultoría UX</em>
+            <em className="font-serif not-italic text-accent">Diagnóstico de Producto</em>
           </motion.h2>
         </motion.div>
 

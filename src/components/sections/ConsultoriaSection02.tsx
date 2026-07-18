@@ -79,13 +79,14 @@ export function ConsultoriaSection02() {
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
               Cruce con la{" "}
-              <em className="font-serif not-italic text-accent">Realidad</em>
+              <em className="font-serif not-italic text-accent">Realidad del Negocio</em>
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Los números dicen qué pasa; la gente que opera cada parte del
-              negocio dice por qué. No confundo &ldquo;medir más&rdquo; con &ldquo;decidir mejor&rdquo;
-              — el análisis existe para terminar en una decisión ejecutable.
+              Los números dicen qué pasa; los stakeholders que operan cada parte
+              del negocio dicen por qué. No confundo medir más con decidir mejor
+              — el análisis termina en una decisión ejecutable con hipótesis,
+              métrica y fecha.
             </p>
 
             <ul className="flex flex-col gap-4">
