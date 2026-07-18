@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Proyectos } from "@/components/sections/Proyectos";
 import { Trayectoria } from "@/components/sections/Trayectoria";
-import { LoQueResuelvo } from "@/components/sections/LoQueResuelvo";
+import { Services } from "@/components/sections/Services";
 import { Proceso } from "@/components/sections/Proceso";
 import { Testimonios } from "@/components/sections/Testimonios";
 import { FAQ } from "@/components/sections/FAQ";
@@ -17,8 +17,8 @@ export default function Home() {
       <main className="flex flex-1 flex-col">
         <Hero />
         <Proyectos />
+        <Services />
         <Trayectoria />
-        <LoQueResuelvo />
         <Proceso />
         <Testimonios />
         <FAQ />

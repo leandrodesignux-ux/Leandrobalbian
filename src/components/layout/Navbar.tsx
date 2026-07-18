@@ -11,6 +11,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Proyectos", href: "/proyectos" },
+  { label: "Servicios", href: "#servicios" },
   { label: "Biografía", href: "/biografia" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -82,7 +83,7 @@ export function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            {navLinks.slice(1, 3).map((link) => (
+            {navLinks.slice(1, 4).map((link) => (
               <a
                 key={link.label}
                 href={link.href}
