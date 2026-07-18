@@ -56,15 +56,17 @@ export function DisenoProductoContactForm() {
             htmlFor="name"
             className="text-xs font-medium uppercase tracking-widest text-secondary"
           >
-            Nombre
+            Nombre <span aria-hidden="true">*</span>
           </label>
           <input
             id="name"
             type="text"
             required
+            aria-required="true"
+            autoComplete="name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+            className="min-h-[44px] rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
             placeholder="Tu nombre"
           />
         </div>
@@ -73,15 +75,17 @@ export function DisenoProductoContactForm() {
             htmlFor="email"
             className="text-xs font-medium uppercase tracking-widest text-secondary"
           >
-            Correo
+            Correo <span aria-hidden="true">*</span>
           </label>
           <input
             id="email"
             type="email"
             required
+            aria-required="true"
+            autoComplete="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+            className="min-h-[44px] rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
             placeholder="tu@email.com"
           />
         </div>
@@ -96,10 +100,11 @@ export function DisenoProductoContactForm() {
         </label>
         <input
           id="platform"
-          type="text"
+          type="url"
+          autoComplete="url"
           value={formData.platform}
           onChange={(e) => setFormData({ ...formData, platform: e.target.value })}
-          className="rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+          className="min-h-[44px] rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
           placeholder="https://tuplataforma.cl"
         />
       </div>
@@ -116,7 +121,7 @@ export function DisenoProductoContactForm() {
           rows={3}
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-          className="rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+          className="min-h-[88px] rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
           placeholder="Contame sobre tu plataforma..."
         />
       </div>
@@ -125,27 +130,29 @@ export function DisenoProductoContactForm() {
         type="submit"
         disabled={status === "submitting"}
         className={cn(
-          "mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-accent transition-all hover:bg-primary/90",
-          status === "submitting" && "opacity-70"
+          "mt-2 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-accent transition-all hover:bg-primary/90",
+          status === "submitting" && "cursor-not-allowed opacity-60"
         )}
       >
         {status === "submitting" ? "Enviando..." : "Solicitar auditoría"}
         <Send className="h-4 w-4" />
       </button>
 
-      {status === "success" && (
-        <div className="flex items-center gap-2 rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-primary">
-          <CheckCircle className="h-4 w-4 text-accent" />
-          Solicitud enviada. Te respondo en menos de 24 horas.
-        </div>
-      )}
+      <div aria-live="polite" aria-atomic="true" className="flex flex-col gap-2">
+        {status === "success" && (
+          <div className="flex items-center gap-2 rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-primary">
+            <CheckCircle className="h-4 w-4 text-accent" />
+            Solicitud enviada. Te respondo en menos de 24 horas.
+          </div>
+        )}
 
-      {status === "error" && (
-        <div className="flex items-start gap-2 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-primary">
-          <AlertCircle className="mt-0.5 h-4 w-4 text-red-500" />
-          <span>{errorMessage}</span>
-        </div>
-      )}
+        {status === "error" && (
+          <div role="alert" className="flex items-start gap-2 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-primary">
+            <AlertCircle className="mt-0.5 h-4 w-4 text-red-500" />
+            <span>{errorMessage}</span>
+          </div>
+        )}
+      </div>
 
       <p className="text-center text-xs text-secondary">
         Auditoría inicial · Respuesta en 24h

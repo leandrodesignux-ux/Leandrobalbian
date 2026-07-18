@@ -21,12 +21,16 @@ export function NetworkBackground({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const rafRef = useRef<number>(0);
+  const reducedMotionRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    reducedMotionRef.current = mediaQuery.matches;
 
     let width = 0;
     let height = 0;
@@ -75,7 +79,7 @@ export function NetworkBackground({
       mouseRef.current = { x: -1000, y: -1000 };
     };
 
-    const animate = () => {
+    const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
       for (let i = 0; i < particles.length; i++) {
@@ -124,12 +128,29 @@ export function NetworkBackground({
         }
       }
 
-      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    const animate = () => {
+      draw();
+      if (!reducedMotionRef.current) {
+        rafRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    const handleMotionChange = (event: MediaQueryListEvent) => {
+      reducedMotionRef.current = event.matches;
+      if (event.matches) {
+        cancelAnimationFrame(rafRef.current);
+      } else {
+        rafRef.current = requestAnimationFrame(animate);
+      }
     };
 
     resize();
     initParticles();
     animate();
+
+    mediaQuery.addEventListener("change", handleMotionChange);
 
     window.addEventListener("resize", () => {
       resize();
@@ -143,13 +164,15 @@ export function NetworkBackground({
       window.removeEventListener("resize", resize);
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
+      mediaQuery.removeEventListener("change", handleMotionChange);
     };
   }, [particleCount, connectionDistance, color, accentColor]);
 
   return (
     <canvas
       ref={canvasRef}
-      className={cn("pointer-events-auto absolute inset-0 h-full w-full", className)}
+      className={cn("pointer-events-none absolute inset-0 h-full w-full", className)}
+      aria-hidden="true"
     />
   );
 }

@@ -3,11 +3,15 @@
 import { Container } from "@/components/ui/Container";
 import { NetworkBackground } from "@/components/ui/NetworkBackground";
 import { ServiceTabs } from "./ServiceTabs";
-import { fadeUp, staggerContainer } from "@/lib/motion";
+import { getAccessibleVariants } from "@/lib/motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export function ConsultoriaHero() {
+  const reducedMotion = useReducedMotion();
+  const { fadeUp, staggerContainer } = getAccessibleVariants(reducedMotion);
+
   return (
     <section className="relative overflow-hidden pt-24 pb-12 md:pt-32 md:pb-16">
       <NetworkBackground className="opacity-40" />
