@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Marquee } from "@/components/ui/Marquee";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { LogoMark } from "@/components/ui/LogoMark";
 import {
   fadeUp,
   staggerContainer,
@@ -12,6 +13,7 @@ import {
 } from "@/lib/motion";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import {
   services,
   processSteps,
@@ -20,7 +22,7 @@ import {
   impactMetrics,
   marqueeItems,
 } from "@/data/services";
-import { X, Plus, Minus } from "lucide-react";
+import { Plus, Minus, ArrowRight } from "lucide-react";
 
 function MethodologyCard({
   service,
@@ -157,41 +159,57 @@ function SuccessCaseCard({
     <motion.article
       variants={fadeUp}
       className={cn(
-        "flex flex-col rounded-3xl border p-6 transition-all duration-300 sm:p-8",
+        "group flex min-h-[320px] flex-col rounded-3xl border p-6 transition-all duration-300 sm:p-8",
         isOpen
           ? "border-accent/50 bg-elevated/30 shadow-[0_0_40px_-12px_rgba(200,255,0,0.15)]"
           : "border-border bg-elevated/20 hover:border-accent/30"
       )}
     >
       <div className="flex items-start justify-between gap-4">
-        <div className="flex h-12 items-center justify-center rounded-lg border border-border bg-elevated/50 px-4">
-          <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-            {item.name}
-          </span>
+        <div className="flex items-center gap-3">
+          <LogoMark initials={item.initials} />
+          <span className="text-sm font-semibold text-primary">{item.name}</span>
         </div>
         <button
           type="button"
           onClick={onToggle}
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-secondary transition-colors hover:border-accent/30 hover:text-accent"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-secondary transition-colors hover:border-accent/30 hover:text-accent"
           aria-expanded={isOpen}
           aria-label={isOpen ? "Cerrar caso" : "Ver caso completo"}
         >
-          {isOpen ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+          {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
         </button>
       </div>
 
       <div className="mt-6">
-        <div className="text-4xl font-extrabold tracking-tight text-primary sm:text-5xl">
-          {item.result}
-        </div>
-        <p className="mt-1 text-sm font-medium text-accent">
-          {item.metricLabel}
-        </p>
+        <span
+          className={cn(
+            "inline-block text-2xl font-bold tracking-tight sm:text-3xl",
+            item.isMetric ? "text-accent" : "text-primary"
+          )}
+        >
+          {item.badge}
+        </span>
       </div>
 
-      <p className="mt-4 flex-1 text-sm leading-relaxed text-secondary">
+      <h3 className="mt-4 text-lg font-bold leading-tight text-primary sm:text-xl">
+        {item.name}
+      </h3>
+
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-secondary">
         {item.shortDescription}
       </p>
+
+      <div className="mt-6 flex flex-wrap gap-2">
+        {item.tags.map((tag) => (
+          <span
+            key={tag}
+            className="rounded-full border border-border px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-secondary"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
 
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -208,48 +226,38 @@ function SuccessCaseCard({
                   <h5 className="text-xs font-semibold uppercase tracking-widest text-primary">
                     Problema
                   </h5>
-                  <p className="mt-1 text-sm text-secondary">{item.story.problem}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-secondary">
+                    {item.story.problem}
+                  </p>
                 </div>
                 <div>
                   <h5 className="text-xs font-semibold uppercase tracking-widest text-primary">
-                    Investigación
+                    Qué hice
                   </h5>
-                  <p className="mt-1 text-sm text-secondary">{item.story.research}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-secondary">
+                    {item.story.whatIDid}
+                  </p>
                 </div>
                 <div>
                   <h5 className="text-xs font-semibold uppercase tracking-widest text-primary">
-                    Hallazgo
+                    Resultado
                   </h5>
-                  <p className="mt-1 text-sm text-secondary">{item.story.finding}</p>
-                </div>
-                <div>
-                  <h5 className="text-xs font-semibold uppercase tracking-widest text-primary">
-                    Palanca
-                  </h5>
-                  <p className="mt-1 text-sm text-secondary">{item.story.lever}</p>
-                </div>
-                <div>
-                  <h5 className="text-xs font-semibold uppercase tracking-widest text-primary">
-                    Impacto
-                  </h5>
-                  <p className="mt-1 text-sm text-secondary">{item.story.impact}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-secondary">
+                    {item.story.result}
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <p className="mt-6 text-xs font-medium uppercase tracking-widest text-secondary">
-        {item.industry}
-      </p>
     </motion.article>
   );
 }
 
 export function Services() {
   const [openMethodology, setOpenMethodology] = useState<string | null>(null);
-  const [openCase, setOpenCase] = useState<string | null>("spot2");
+  const [openCase, setOpenCase] = useState<string | null>(null);
 
   return (
     <>
@@ -381,7 +389,7 @@ export function Services() {
           </motion.div>
 
           <motion.div
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
@@ -397,6 +405,22 @@ export function Services() {
                 }
               />
             ))}
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            className="mt-12 flex justify-center"
+          >
+            <Link
+              href="/proyectos"
+              className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-primary transition-colors hover:border-accent/30 hover:text-accent"
+            >
+              Ver todos los proyectos
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </motion.div>
         </Container>
       </section>

@@ -15,19 +15,16 @@ export type ProcessStep = {
 export type SuccessCase = {
   id: string;
   name: string;
-  logoType: "image" | "text";
-  logoSrc?: string;
-  result: string;
-  metricLabel: string;
+  initials: string;
+  badge: string;
+  isMetric: boolean;
   shortDescription: string;
   story: {
     problem: string;
-    research: string;
-    finding: string;
-    lever: string;
-    impact: string;
+    whatIDid: string;
+    result: string;
   };
-  industry: string;
+  tags: string[];
 };
 
 export type Principle = {
@@ -154,90 +151,110 @@ export const successCases: SuccessCase[] = [
   {
     id: "spot2",
     name: "Spot2",
-    logoType: "text",
-    result: "+",
-    metricLabel: "Conversión del marketplace",
+    initials: "S2",
+    badge: "Diagnóstico causal",
+    isMetric: false,
     shortDescription:
-      "Rediseño del ecosistema SaaS PropTech con foco en decisiones basadas en datos y sistemas de diseño escalables.",
+      "Reencuadré 'cuestioná el marketplace' en un diagnóstico causal: la caída real estaba en visitas no concretadas, no en contacto perdido.",
     story: {
       problem:
-        "Encargo ambiguo: 'cuestioná el marketplace en su totalidad'. Reencuadre el problema a: '¿por qué el marketplace pierde las visitas que ya consiguió?'.",
-      research:
-        "Crucé tres fuentes —comportamiento en el sitio, base de negocio y grabaciones de sesión— para seguir al usuario de punta a punta. Hice 1:1 con cada área (chatbot, Supply, algoritmo/web).",
-      finding:
-        "La caída grande no estaba en conseguir el contacto, sino en que la visita agendada se concretara. Depende de factores predecibles del inventario: tipo de dueño, frescura y sector. La mitad del catálogo activo llevaba +90 días sin actualizar.",
-      lever:
-        "Ordenar el listado por probabilidad de visita realizada, sumando una señal nueva al algoritmo existente — sin construir un sistema nuevo y sin pisar a nadie.",
-      impact:
-        "Reorienté el foco de 'optimizar botones' a 'atacar la causa de las cancelaciones'. Además, desactivé un error de medición del 94,6% en el traspaso a WhatsApp que evitó optimizar sobre una base falsa.",
+        "Encargo ambiguo ('cuestioná el marketplace en su totalidad'), reencuadrado a '¿por qué se pierden las visitas que ya se consiguieron?'.",
+      whatIDid:
+        "Crucé comportamiento en el sitio + base de negocio + grabaciones de sesión para seguir al usuario de punta a punta. Detecté que una fuga aparente del 94,6% en el traspaso a WhatsApp era en realidad un error de medición, no abandono real. Encontré que la mitad del catálogo llevaba +90 días sin actualizar, y que eso predecía las cancelaciones de visita.",
+      result:
+        "Propuse ordenar el listado por probabilidad de visita realizada como palanca ejecutable, y prototipé en Next.js un Supply Agent de WhatsApp para validar el flujo antes de construirlo.",
     },
-    industry: "PropTech · SaaS",
+    tags: ["PropTech", "SaaS"],
   },
   {
     id: "impact",
     name: "IMPACT",
-    logoType: "text",
-    result: "+30%",
-    metricLabel: "Satisfacción del usuario",
+    initials: "IM",
+    badge: "+30% satisfacción",
+    isMetric: true,
     shortDescription:
-      "Liderazgo del departamento UX para plataformas de e-learning en banca digital, minería y telecomunicaciones.",
+      "Lideré el equipo de UX para plataformas de e-learning en banca digital, minería y telecomunicaciones.",
     story: {
       problem:
-        "Plataformas de e-learning con baja satisfacción del usuario y alta complejidad en flujos de capacitación corporativa.",
-      research:
-        "Investigación de usuarios, pruebas de usabilidad y análisis de flujos de aprendizaje en contextos regulados.",
-      finding:
-        "La fricción no estaba en el contenido, sino en la navegación y la arquitectura de información de los cursos y evaluaciones.",
-      lever:
-        "Rediseño de la experiencia de aprendizaje con foco en accesibilidad, claridad de navegación y componentes reutilizables.",
-      impact:
-        "Aumento del 30% en la satisfacción del usuario y consolidación de un sistema de diseño reusable para múltiples clientes.",
+        "Interfaces de e-learning para banca digital, minería y telecomunicaciones con baja adopción y satisfacción.",
+      whatIDid:
+        "Dirigí el departamento de UX, diseñé, prototipé y testeé soluciones UI/UX, e introduje integración de IA en los procesos de diseño del equipo (25% más de eficiencia). Promoví accesibilidad y pruebas de usabilidad.",
+      result:
+        "+30% de satisfacción del usuario y aceleración del tiempo de comercialización de nuevos productos.",
     },
-    industry: "E-learning · Banca",
+    tags: ["E-learning", "Banca"],
   },
   {
     id: "copec",
-    name: "Arcoprime · Copec",
-    logoType: "text",
-    result: "+",
-    metricLabel: "Adopción del software",
+    name: "Arcoprime / Copec",
+    initials: "AC",
+    badge: "Adopción de software",
+    isMetric: false,
     shortDescription:
-      "Diseño y producción de video cápsulas educativas para Sckuba, transformando funciones técnicas en aprendizaje claro.",
+      "Transformé funciones técnicas de un software de gestión de tiendas en video-cápsulas animadas fáciles de aprender.",
     story: {
       problem:
-        "Software de administración y gestión de tiendas con aplicación móvil, difícil de adoptar por usuarios no técnicos.",
-      research:
-        "Análisis de funciones críticas del sistema y mapeo de puntos de fricción en el onboarding de usuarios.",
-      finding:
-        "Los usuarios necesitaban formatos de aprendizaje breves y visuales para funciones técnicas del software.",
-      lever:
-        "Producción de video cápsulas educativas animadas con narrativa visual clara y centrada en el usuario.",
-      impact:
-        "Mejora en la comprensión y adopción del software entre clientes y equipos de ventas.",
+        "Sckuba (software de administración y gestión de tiendas con app móvil) requería capacitar a equipos de venta y clientes en funciones técnicas complejas.",
+      whatIDid:
+        "Diseñé y produje video-cápsulas educativas animadas, aplicando principios de diseño centrado en el usuario y narrativa visual para maximizar comprensión.",
+      result:
+        "Transformación de funciones técnicas en aprendizaje claro para clientes y equipos de ventas.",
     },
-    industry: "Retail · Capacitación",
+    tags: ["Retail", "Capacitación"],
   },
   {
     id: "sqm",
-    name: "SQM · Clear Ticket",
-    logoType: "text",
-    result: "+",
-    metricLabel: "Adopción de plataforma interna",
+    name: "SQM",
+    initials: "SQ",
+    badge: "Vista unificada",
+    isMetric: false,
     shortDescription:
-      "Auditoría de plataforma interna para identificar fricciones críticas y levantar un plan de mejora ejecutable.",
+      "Rediseñé la gestión de certificaciones industriales: de procesos fragmentados a un registro claro por trabajador.",
     story: {
       problem:
-        "Plataforma interna de ticketing con baja adopción y alto costo de soporte en operaciones mineras.",
-      research:
-        "Auditoría UX, entrevistas con operadores y mapeo de flujos críticos de reporte y seguimiento.",
-      finding:
-        "La plataforma tenía información dispersa, estados poco diferenciados y falta de feedback en acciones críticas.",
-      lever:
-        "Plan de mejora priorizado con rediseño de flujos principales, estados operativos claros y sistema de notificaciones.",
-      impact:
-        "Reducción de consultas de soporte y aumento de la autonomía de los operadores en el uso de la plataforma.",
+        "Sin seguimiento del progreso de capacitación, sin visibilidad de vencimientos de certificaciones, mallas curriculares complejas de asignar, sin vista unificada del perfil profesional.",
+      whatIDid:
+        "Implementé un rediseño con metodologías de arquitectura de información y diseño de sistemas complejos: dashboard de mallas de aprendizaje, perfil de trabajador con certificados y ranking.",
+      result:
+        "Plataforma que simplifica la gestión de certificaciones manteniendo un registro claro y accesible del desarrollo profesional de cada trabajador.",
     },
-    industry: "Minería · Enterprise",
+    tags: ["Minería", "Enterprise"],
+  },
+  {
+    id: "clear-ticket",
+    name: "Clear Ticket",
+    initials: "CT",
+    badge: "Autenticación por rol",
+    isMetric: false,
+    shortDescription:
+      "Simplifiqué la asignación de tarjetas eliminando los puntos de fricción entre usuarios y administradores.",
+    story: {
+      problem:
+        "Interfaz sobrecargada sin filtros relevantes, sin distinción entre asignación individual y masiva, alta probabilidad de error por falta de validaciones.",
+      whatIDid:
+        "Implementé un sistema de login que reconoce rol y permisos, con lógica que personaliza automáticamente el universo de tarjetas disponibles, validaciones contextuales, y una interfaz de búsqueda con filtros y sugerencias automáticas.",
+      result:
+        "Proceso de asignación más rápido y con menos errores.",
+    },
+    tags: ["Fintech", "Operaciones"],
+  },
+  {
+    id: "siac",
+    name: "SIAC",
+    initials: "SI",
+    badge: "Monitoreo en tiempo real",
+    isMetric: false,
+    shortDescription:
+      "Rediseñé la estructura de monitoreo de activos críticos en tiempo real, de datos fragmentados a un dashboard cohesivo.",
+    story: {
+      problem:
+        "Información fragmentada en múltiples pantallas sin jerarquía, dificultad para identificar alertas críticas, visualización confusa en mapas y tablas.",
+      whatIDid:
+        "Diseñé un mapa interactivo expandible con tabla flotante de eventos recientes, sistema de iconografía diferenciada por tipo de dispositivo, y código de colores para estados.",
+      result:
+        "Reducción del tiempo de respuesta ante incidentes y mejora en la toma de decisiones.",
+    },
+    tags: ["Seguridad", "Enterprise"],
   },
 ];
 
