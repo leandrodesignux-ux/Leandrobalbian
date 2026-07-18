@@ -3,6 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { NetworkBackground } from "@/components/ui/NetworkBackground";
 import { ServiceTabs } from "./ServiceTabs";
+import { PalancaBadge } from "./PalancaTags";
 import { getAccessibleVariants } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { motion } from "framer-motion";
@@ -31,12 +32,8 @@ export function UserFlowsHero() {
               </p>
 
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-accent">
-                  Retención
-                </span>
-                <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-accent">
-                  Conversión
-                </span>
+                <PalancaBadge id="retencion" />
+                <PalancaBadge id="conversion" />
               </div>
 
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
