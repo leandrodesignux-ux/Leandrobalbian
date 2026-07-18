@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { CTA } from "@/components/sections/CTA";
+import { ServicesCTA } from "@/components/sections/ServicesCTA";
 import { ServicesHero } from "@/components/sections/ServicesHero";
 import { Services } from "@/components/sections/Services";
 
@@ -17,7 +17,7 @@ export default function ServicesPage() {
       <main className="flex flex-1 flex-col">
         <ServicesHero />
         <Services />
-        <CTA />
+        <ServicesCTA />
       </main>
       <Footer />
     </>
