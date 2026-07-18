@@ -3,9 +3,9 @@
 import { Container } from "@/components/ui/Container";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { motion } from "framer-motion";
-import { UxWritingContactForm } from "./UxWritingContactForm";
+import { UserFlowsContactForm } from "./UserFlowsContactForm";
 
-export function UxWritingCTA() {
+export function UserFlowsCTA() {
   return (
     <section id="contacto" className="bg-accent py-24 text-background md:py-32">
       <Container>
@@ -22,20 +22,21 @@ export function UxWritingCTA() {
                 Siguiente paso
               </p>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-                Consulta de Contenido
+                User Flows & Onboarding
               </h2>
               <p className="text-base leading-relaxed text-secondary md:text-lg">
-                Contame qué parte de tu producto no se está adoptando como debería,
-                y revisamos si el problema es de interfaz, de lenguaje, o de ambos.
+                Contame qué parte de tu flujo de activación está perdiendo
+                usuarios, y revisamos si el problema es de onboarding, de lenguaje
+                de interfaz, o de ambos.
               </p>
 
               <div className="flex flex-col gap-3">
                 <p className="text-sm font-semibold text-primary">Incluye:</p>
                 <ul className="flex flex-col gap-2">
                   {[
-                    "Diagnóstico de puntos de fricción comunicativa",
-                    "Propuesta de formato: microcopy, onboarding o cápsulas",
-                    "Plan de testing de comprensión",
+                    "Mapa de fricción del onboarding actual",
+                    "Propuesta de flujo y lenguaje de activación",
+                    "Plan de testing de comprensión con usuarios",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-secondary">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -47,7 +48,7 @@ export function UxWritingCTA() {
             </motion.div>
 
             <motion.div variants={fadeUp}>
-              <UxWritingContactForm />
+              <UserFlowsContactForm />
             </motion.div>
           </div>
         </motion.div>

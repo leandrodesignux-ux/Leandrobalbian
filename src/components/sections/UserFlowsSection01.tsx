@@ -5,9 +5,9 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-export function UxWritingSection01() {
+export function UserFlowsSection01() {
   return (
-    <section id="ux-writing" className="py-24 md:py-32">
+    <section id="flujo-lenguaje" className="py-24 md:py-32">
       <Container>
         <motion.div
           className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16"
@@ -23,14 +23,14 @@ export function UxWritingSection01() {
             </span>
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-              <em className="font-serif not-italic text-accent">UX Writing</em>{" "}
-              Centrado en Claridad
+              <em className="font-serif not-italic text-accent">Flujo</em> y
+              Lenguaje de Activación
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Las interfaces no solo se ven, se leen. Desarrollo estrategias de
-              comunicación integral centradas en la claridad y la empatía, no en el
-              copy genérico.
+              Cuando el copy de un flujo no se entiende en los primeros 5
+              segundos, no perdés un usuario que &ldquo;no leyó bien&rdquo; —
+              perdés una activación que ya pagaste en adquisición.
             </p>
 
             <ul className="flex flex-col gap-4">
@@ -96,7 +96,7 @@ export function UxWritingSection01() {
 
               <div className="mt-4 border-t border-border pt-4">
                 <p className="text-sm text-secondary">
-                  <span className="text-accent font-semibold">+25%</span> de eficiencia del equipo al integrar IA en el proceso de diseño. Aceleración del tiempo de comercialización de nuevos productos.
+                  <span className="font-semibold text-accent">+25%</span> de eficiencia del equipo al integrar IA en el proceso de diseño. Aceleración del tiempo de comercialización de nuevos productos.
                 </p>
               </div>
             </div>

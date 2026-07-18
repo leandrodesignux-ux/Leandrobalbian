@@ -8,7 +8,7 @@ import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-export function UxWritingHero() {
+export function UserFlowsHero() {
   const reducedMotion = useReducedMotion();
   const { fadeUp, staggerContainer } = getAccessibleVariants(reducedMotion);
 
@@ -30,16 +30,26 @@ export function UxWritingHero() {
                 — SERVICIOS
               </p>
 
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-accent">
+                  Retención
+                </span>
+                <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-accent">
+                  Conversión
+                </span>
+              </div>
+
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
-                Contenido que se{" "}
-                <em className="font-serif not-italic text-accent">Entiende</em> a la
-                Primera
+                <em className="font-serif not-italic text-accent">User Flows</em>{" "}
+                & Onboarding
               </h1>
 
               <p className="max-w-xl text-lg leading-relaxed text-secondary md:text-xl">
-                Traduzco funciones técnicas complejas en comunicación clara —
-                interfaces, onboarding, cápsulas educativas — para que la adopción
-                no dependa de que el usuario lea un manual.
+                Un producto técnicamente sólido igual pierde usuarios si el
+                onboarding no activa rápido, o si la interfaz asume que el usuario
+                ya entiende la lógica interna del sistema. Diseño el flujo y el
+                lenguaje que convierten un registro en un usuario activo — no un
+                manual que nadie lee.
               </p>
 
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -74,7 +84,7 @@ export function UxWritingHero() {
               >
                 <defs>
                   <pattern
-                    id="ux-grid"
+                    id="uf-grid"
                     width="40"
                     height="40"
                     patternUnits="userSpaceOnUse"
@@ -87,50 +97,18 @@ export function UxWritingHero() {
                     />
                   </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#ux-grid)" />
-                {/* Chat bubbles */}
-                <rect
-                  x="12%"
-                  y="25%"
-                  width="60%"
-                  height="12%"
-                  rx="12"
-                  fill="rgba(255,255,255,0.06)"
-                />
-                <rect
-                  x="22%"
-                  y="41%"
-                  width="66%"
-                  height="12%"
-                  rx="12"
-                  fill="rgba(200,255,0,0.12)"
-                />
-                <rect
-                  x="12%"
-                  y="57%"
-                  width="50%"
-                  height="12%"
-                  rx="12"
-                  fill="rgba(255,255,255,0.04)"
-                />
-                <rect
-                  x="18%"
-                  y="73%"
-                  width="58%"
-                  height="12%"
-                  rx="12"
-                  fill="rgba(255,255,255,0.05)"
-                />
-                {/* Checkmark */}
-                <circle cx="85%" cy="47%" r="12" fill="#c8ff00" opacity="0.9" />
-                <path
-                  d="M 80% 46% L 83.5% 50% L 90% 44%"
-                  fill="none"
-                  stroke="#0a0a0a"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <rect width="100%" height="100%" fill="url(#uf-grid)" />
+                {/* Flow steps */}
+                <rect x="10%" y="25%" width="35%" height="8%" rx="6" fill="rgba(255,255,255,0.06)" />
+                <rect x="55%" y="25%" width="35%" height="8%" rx="6" fill="rgba(200,255,0,0.15)" />
+                <rect x="10%" y="42%" width="35%" height="8%" rx="6" fill="rgba(255,255,255,0.04)" />
+                <rect x="55%" y="42%" width="35%" height="8%" rx="6" fill="rgba(255,255,255,0.06)" />
+                <rect x="10%" y="59%" width="80%" height="8%" rx="6" fill="rgba(200,255,0,0.1)" />
+                {/* Arrows between steps */}
+                <path d="M 48% 29% L 52% 29%" stroke="#c8ff00" strokeWidth="1.5" opacity="0.5" />
+                <path d="M 48% 46% L 52% 46%" stroke="#c8ff00" strokeWidth="1.5" opacity="0.5" />
+                <circle cx="82%" cy="74%" r="8" fill="#c8ff00" opacity="0.9" />
+                <path d="M 78% 74% L 82% 78% L 88% 72%" fill="none" stroke="#0a0a0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </motion.div>
           </div>

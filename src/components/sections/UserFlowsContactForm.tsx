@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
-export function UxWritingContactForm() {
+export function UserFlowsContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,7 +27,7 @@ export function UxWritingContactForm() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: `¿Qué necesitás comunicar mejor?\n${formData.description}\n\nSolicitud de consulta de contenido desde /servicios/ux-writing-elearning`,
+          message: `Flujo o pantalla a revisar:\n${formData.description}\n\nSolicitud de consulta de User Flows & Onboarding desde /servicios/ux-writing-elearning`,
         }),
       });
 
@@ -52,13 +52,13 @@ export function UxWritingContactForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label
-            htmlFor="ux-name"
+            htmlFor="uf-name"
             className="text-xs font-medium uppercase tracking-widest text-secondary"
           >
             Nombre <span aria-hidden="true">*</span>
           </label>
           <input
-            id="ux-name"
+            id="uf-name"
             type="text"
             required
             aria-required="true"
@@ -71,13 +71,13 @@ export function UxWritingContactForm() {
         </div>
         <div className="flex flex-col gap-1.5">
           <label
-            htmlFor="ux-email"
+            htmlFor="uf-email"
             className="text-xs font-medium uppercase tracking-widest text-secondary"
           >
             Correo <span aria-hidden="true">*</span>
           </label>
           <input
-            id="ux-email"
+            id="uf-email"
             type="email"
             required
             aria-required="true"
@@ -92,18 +92,18 @@ export function UxWritingContactForm() {
 
       <div className="flex flex-col gap-1.5">
         <label
-          htmlFor="ux-description"
+          htmlFor="uf-description"
           className="text-xs font-medium uppercase tracking-widest text-secondary"
         >
-          ¿Qué necesitás comunicar mejor?
+          ¿Qué flujo o pantalla necesitás revisar?
         </label>
         <textarea
-          id="ux-description"
+          id="uf-description"
           rows={4}
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           className="min-h-[88px] rounded-xl border border-border bg-elevated/30 px-4 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-          placeholder="Contame qué parte de tu producto no se está adoptando como debería..."
+          placeholder="Contame qué parte de tu onboarding no está activando como debería..."
         />
       </div>
 

@@ -1,16 +1,16 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { UxWritingHero } from "@/components/sections/UxWritingHero";
-import { UxWritingSection01 } from "@/components/sections/UxWritingSection01";
-import { UxWritingSection02 } from "@/components/sections/UxWritingSection02";
-import { UxWritingWhy } from "@/components/sections/UxWritingWhy";
-import { UxWritingFAQ } from "@/components/sections/UxWritingFAQ";
-import { UxWritingCTA } from "@/components/sections/UxWritingCTA";
+import { UserFlowsHero } from "@/components/sections/UserFlowsHero";
+import { UserFlowsSection01 } from "@/components/sections/UserFlowsSection01";
+import { UserFlowsSection02 } from "@/components/sections/UserFlowsSection02";
+import { UserFlowsWhy } from "@/components/sections/UserFlowsWhy";
+import { UserFlowsFAQ } from "@/components/sections/UserFlowsFAQ";
+import { UserFlowsCTA } from "@/components/sections/UserFlowsCTA";
 
 export const metadata = {
-  title: "UX Writing, Onboarding & E-learning — Leandro Balbian",
+  title: "User Flows & Onboarding — Leandro Balbian",
   description:
-    "Traduzco funciones técnicas complejas en comunicación clara: interfaces, onboarding y cápsulas educativas para productos digitales.",
+    "Diseño el flujo y el lenguaje que convierten un registro en un usuario activo — onboarding, activación y cápsulas educativas para productos digitales.",
 };
 
 export default function UXWritingElearningPage() {
@@ -18,12 +18,12 @@ export default function UXWritingElearningPage() {
     <>
       <Navbar />
       <main className="flex flex-1 flex-col">
-        <UxWritingHero />
-        <UxWritingSection01 />
-        <UxWritingSection02 />
-        <UxWritingWhy />
-        <UxWritingFAQ />
-        <UxWritingCTA />
+        <UserFlowsHero />
+        <UserFlowsSection01 />
+        <UserFlowsSection02 />
+        <UserFlowsWhy />
+        <UserFlowsFAQ />
+        <UserFlowsCTA />
       </main>
       <Footer />
     </>

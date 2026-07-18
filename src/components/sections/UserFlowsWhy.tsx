@@ -13,7 +13,7 @@ const differentials = [
   },
   {
     icon: UserX,
-    title: "Reduce abandono",
+    title: "Reduce abandono temprano",
     description: "Comunicación clara que genera confianza, no fricción.",
   },
   {
@@ -28,7 +28,7 @@ const differentials = [
   },
 ];
 
-export function UxWritingWhy() {
+export function UserFlowsWhy() {
   return (
     <section className="py-24 md:py-32">
       <Container>
@@ -43,23 +43,35 @@ export function UxWritingWhy() {
             variants={fadeUp}
             className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
           >
-            — ¿Por qué este servicio?
+            — ¿Por qué User Flows & Onboarding?
           </motion.p>
 
           <motion.h2
             variants={fadeUp}
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
-            La adopción no debería depender de un manual
+            La activación no debería depender de que el usuario lea
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
           >
-            Ideal si tu producto es técnicamente sólido pero los usuarios no lo
-            adoptan porque no lo entienden rápido.
+            Ideal si tu producto tiene buena adquisición pero mala activación — los
+            usuarios se registran y no vuelven al día 2.
           </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            className="mt-8 rounded-2xl border border-accent/30 bg-accent/5 p-5"
+          >
+            <p className="text-sm font-semibold text-accent">Impacto en el negocio:</p>
+            <p className="mt-2 text-sm leading-relaxed text-primary">
+              Mejora directa en tasa de activación (<strong className="text-accent">Conversión</strong>){", "}
+              y reducción de abandono temprano (<strong className="text-accent">Retención</strong>){", "}
+              mediante onboarding y lenguaje que no dependen de que el usuario lea un manual.
+            </p>
+          </motion.div>
         </motion.div>
 
         <motion.div

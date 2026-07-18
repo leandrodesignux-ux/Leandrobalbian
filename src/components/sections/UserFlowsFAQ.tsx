@@ -8,28 +8,28 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Qué es UX writing en este contexto?",
+    question: "¿Trabajan con nuestro equipo de producto o con el de marketing?",
     answer:
-      "Diseñar el lenguaje de una interfaz o experiencia con la misma intención que su estructura visual: claridad, empatía y reducción de fricción.",
+      "Con el de producto, principalmente — el foco es el flujo dentro del producto (onboarding, activación), no comunicación externa.",
   },
   {
-    question: "¿Hacen solo texto o también video/animación?",
+    question: "¿Cómo miden el impacto en activación o retención?",
     answer:
-      "Ambos, según lo que necesite el producto — desde microcopy de interfaz hasta cápsulas educativas animadas completas.",
+      "Con testing de comprensión con usuarios reales antes de lanzar, y métricas de adopción cuando el proyecto lo permite. El track record confirmado es +30% de satisfacción de usuario en una plataforma de e-learning para banca digital.",
   },
   {
-    question: "¿Para qué industrias funciona mejor?",
+    question: "¿Hacen solo texto de interfaz o también contenido de onboarding (video, tutoriales)?",
     answer:
-      "Cualquier producto con curva de aprendizaje: banca digital, software de gestión, plataformas técnicas B2B.",
+      "Ambos — desde microcopy de producto hasta cápsulas educativas completas, según qué necesite tu tasa de activación.",
   },
   {
-    question: "¿Cómo miden el impacto?",
+    question: "¿Cuánto tarda un proyecto de rediseño de onboarding?",
     answer:
-      "Con testing de comprensión con usuarios reales y métricas de adopción/satisfacción cuando el proyecto lo permite.",
+      "Depende de la complejidad del flujo actual, pero el mapa de fricción y la primera propuesta de flujo suelen estar en 2-3 semanas.",
   },
 ];
 
-export function UxWritingFAQ() {
+export function UserFlowsFAQ() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
@@ -53,7 +53,7 @@ export function UxWritingFAQ() {
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Todo sobre{" "}
-            <em className="font-serif not-italic text-accent">UX Writing & E-learning</em>
+            <em className="font-serif not-italic text-accent">User Flows & Onboarding</em>
           </motion.h2>
         </motion.div>
 

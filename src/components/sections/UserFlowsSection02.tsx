@@ -28,9 +28,9 @@ const howItWorks = [
   },
 ];
 
-export function UxWritingSection02() {
+export function UserFlowsSection02() {
   return (
-    <section id="elearning" className="border-y border-border py-24 md:py-32">
+    <section id="onboarding" className="border-y border-border py-24 md:py-32">
       <Container>
         <motion.div
           className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16"
@@ -78,15 +78,16 @@ export function UxWritingSection02() {
             </span>
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-              <em className="font-serif not-italic text-accent">Cápsulas</em>{" "}
-              Educativas y Onboarding
+              <em className="font-serif not-italic text-accent">Onboarding</em>{" "}
+              que No Necesita Manual
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Para Arcoprime/Copec, transformé las funciones técnicas de Sckuba
-              (software de gestión de tiendas) en video-cápsulas educativas
-              animadas, usando narrativa visual para maximizar comprensión y
-              adopción entre clientes y equipos de venta.
+              Un feature que tu equipo construyó pero que los usuarios no adoptan
+              no es un problema de producto — es un problema de que nadie diseñó
+              cómo se aprende a usarlo. Para Arcoprime/Copec, eso significó
+              traducir funciones técnicas de un software de gestión en algo que un
+              equipo de ventas entendía sin capacitación presencial.
             </p>
 
             <ul className="flex flex-col gap-4">
