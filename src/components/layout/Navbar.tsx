@@ -11,7 +11,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Proyectos", href: "/proyectos" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Servicios", href: "/servicios" },
   { label: "Biografía", href: "/biografia" },
   { label: "Contacto", href: "#contacto" },
 ];

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight, Asterisk } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { NetworkBackground } from "@/components/ui/NetworkBackground";
 import { useState } from "react";
 
 const industries = ["PropTech", "FinTech", "Minería", "Banca digital"];
@@ -39,7 +40,8 @@ export function Hero() {
 
   return (
     <section className="relative flex flex-1 items-center overflow-hidden py-12 md:py-24">
-      <Container>
+      <NetworkBackground className="opacity-40" />
+      <Container className="relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
