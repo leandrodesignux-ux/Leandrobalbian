@@ -43,27 +43,28 @@ export function DisenoProductoWhy() {
           viewport={viewportOnce}
           variants={staggerContainer}
         >
-          <motion.p
-            variants={fadeUp}
-            className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
-          >
-            — ¿Por qué este enfoque?
-          </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
+            >
+              — ¿Por qué diseño end-to-end?
+            </motion.p>
 
-          <motion.h2
-            variants={fadeUp}
-            className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
-          >
-            Menos carga cognitiva, más decisiones correctas
-          </motion.h2>
+            <motion.h2
+              variants={fadeUp}
+              className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
+            >
+              La fricción invisible es tu mayor riesgo de retención
+            </motion.h2>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
-          >
-            Ideal si tu equipo ya reportó quejas de usuarios internos, alto costo
-            de soporte, o una interfaz que &ldquo;todos saben usar mal&rdquo;.
-          </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg"
+            >
+              Ideal si tu equipo de ingeniería ya reportó que &ldquo;nadie quiere
+              tocar esa parte del sistema&rdquo;, o si tu costo de soporte por
+              confusión de usuario es mayor al que debería.
+            </motion.p>
         </motion.div>
 
         <motion.div
@@ -94,6 +95,16 @@ export function DisenoProductoWhy() {
             );
           })}
         </motion.div>
+
+        <motion.p
+          variants={fadeUp}
+          className="mt-12 max-w-2xl border-t border-border pt-6 text-sm leading-relaxed text-secondary md:text-base"
+        >
+          <strong className="text-accent">Impacto en el negocio:</strong>{" "}
+          reducción del costo operativo (Cost-to-Serve) al bajar la carga de
+          soporte, y protección directa de tu tasa de retención al eliminar la
+          fricción que hace que un usuario abandone la plataforma.
+        </motion.p>
       </Container>
     </section>
   );

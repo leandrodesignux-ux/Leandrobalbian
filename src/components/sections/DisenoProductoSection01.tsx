@@ -47,9 +47,10 @@ export function DisenoProductoSection01() {
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Cuando un sistema crece sin dirección, la información se fragmenta
-              en pantallas sin jerarquía. Reorganizo la estructura para que lo
-              crítico se vea primero.
+              Un dashboard que nadie entiende no es un problema estético — es
+              soporte que factura horas, onboarding que se alarga, y usuarios
+              internos que encuentran atajos riesgosos porque el sistema oficial
+              los frena.
             </p>
 
             <ul className="flex flex-col gap-4">

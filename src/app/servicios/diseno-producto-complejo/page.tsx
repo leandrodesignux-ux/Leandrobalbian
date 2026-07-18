@@ -10,7 +10,7 @@ import { DisenoProductoCTA } from "@/components/sections/DisenoProductoCTA";
 export const metadata = {
   title: "Diseño End-to-End — Leandro Balbian",
   description:
-    "Diseño de plataformas operativas densas, sistemas de decisión crítica y sistemas de diseño escalables.",
+    "Diseño end-to-end de plataformas operativas densas. Arquitectura de información con datos reales, sistemas de diseño documentados y prototipos funcionales para eliminar la fricción que genera churn.",
 };
 
 export default function DisenoProductoComplejoPage() {

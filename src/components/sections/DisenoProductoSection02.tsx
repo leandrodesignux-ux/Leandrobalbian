@@ -83,9 +83,9 @@ export function DisenoProductoSection02() {
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">
-              Establecí sistemas de diseño integrales que garantizan consistencia
-              visual y funcional entre plataformas web y aplicaciones móviles — no
-              cada pantalla resuelta de forma aislada.
+              Cada pantalla resuelta de forma aislada es deuda técnica de diseño
+              que tu equipo de desarrollo paga después, en cada feature nueva que
+              no encaja con las anteriores.
             </p>
 
             <ul className="flex flex-col gap-4">

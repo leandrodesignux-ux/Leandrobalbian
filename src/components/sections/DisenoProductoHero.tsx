@@ -32,7 +32,7 @@ export function DisenoProductoHero() {
               </p>
 
               <div className="flex flex-wrap items-center gap-2">
-                <PalancaBadge id="velocidad" />
+                <PalancaBadge id="retencion" />
               </div>
 
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
@@ -41,10 +41,11 @@ export function DisenoProductoHero() {
               </h1>
 
               <p className="max-w-xl text-lg leading-relaxed text-secondary md:text-xl">
-                Simplifico plataformas operativas densas — dashboards, sistemas
-                de monitoreo, gestión de certificaciones — para que los usuarios
-                que dependen de ellas todos los días tomen decisiones en
-                segundos, no en minutos.
+                Cuando tu plataforma crece sin dirección, la fricción se vuelve
+                invisible hasta que aparece como churn o como tickets de soporte.
+                Diseño el sistema completo — de la arquitectura de datos a la
+                interfaz — para que tu equipo deje de perder usuarios por algo
+                que nunca se vio.
               </p>
 
               <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -61,7 +62,7 @@ export function DisenoProductoHero() {
                   href="#contacto"
                   className="inline-flex items-center justify-center rounded-full border border-border bg-transparent px-6 py-3.5 text-sm font-medium text-primary transition-colors duration-200 hover:border-accent/30 hover:text-accent"
                 >
-                  Agendar diagnóstico
+                  Agendar auditoría
                 </a>
               </div>
             </motion.div>

@@ -19,12 +19,13 @@ export function DisenoProductoCTA() {
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <motion.div variants={fadeUp} className="flex flex-col gap-6">
               <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-                Hagamos que tu plataforma compleja sea usable
+                Hagamos que tu plataforma deje de perder usuarios
               </h2>
               <p className="text-base leading-relaxed text-secondary md:text-lg">
                 Contame sobre tu producto y te preparo una propuesta con foco en
-                reducir carga cognitiva, ordenar la arquitectura de información y
-                construir un sistema de diseño que escale.
+                eliminar la fricción invisible, reorganizar la arquitectura de
+                información y construir un sistema de diseño que escale sin que
+                tu equipo de ingeniería dependa de mí.
               </p>
 
               <div className="flex flex-col gap-3">
@@ -33,9 +34,9 @@ export function DisenoProductoCTA() {
                 </p>
                 <ul className="flex flex-col gap-2">
                   {[
-                    "Diagnóstico inicial de la arquitectura",
-                    "Propuesta de jerarquía visual",
-                    "Estimación de alcance y sistema de diseño",
+                    "Auditoría de arquitectura de información",
+                    "Jerarquía visual basada en datos reales",
+                    "Sistema de diseño documentado y entregable",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-secondary">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent" />

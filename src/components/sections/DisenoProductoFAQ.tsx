@@ -8,24 +8,24 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "¿Qué tipo de plataformas diseñan?",
+    question: "¿Qué tipo de plataformas rediseñan?",
     answer:
-      "Sistemas operativos densos: dashboards de monitoreo, plataformas de gestión industrial, sistemas de certificación, herramientas internas B2B.",
+      "Sistemas operativos densos con datos reales: dashboards de monitoreo, plataformas de gestión industrial, sistemas de certificación, herramientas internas B2B.",
   },
   {
-    question: "¿Trabajás directamente con datos y bases de negocio?",
+    question: "¿Cómo se integra esto con nuestro equipo de ingeniería actual?",
     answer:
-      "Sí, cruzo la estructura de datos real del sistema para diseñar la jerarquía visual, no diseño en el vacío.",
+      "Entrego un sistema de diseño documentado y, cuando el proyecto lo permite, prototipos funcionales — tu equipo no depende de mí para cada pantalla nueva después de la entrega.",
   },
   {
-    question: "¿Entregan un sistema de diseño?",
+    question: "¿Trabajan con nuestra base de datos real o con datos ficticios?",
     answer:
-      "Sí, documentado y reutilizable, para que el equipo de desarrollo no dependa de mí para cada pantalla nueva.",
+      "Con la estructura real del sistema — la jerarquía visual se diseña sobre cómo está organizada tu información hoy, no en abstracto.",
   },
   {
-    question: "¿Cómo es el handoff a desarrollo?",
+    question: "¿Cuál es el timeline típico de un proyecto end-to-end?",
     answer:
-      "Prototipo funcional cuando el proyecto lo permite (ver servicio de Design Engineering), o especificaciones detalladas en Figma con el sistema de diseño documentado.",
+      "Depende del alcance del sistema, pero la auditoría inicial y el primer rediseño de arquitectura suelen entregarse en 3-4 semanas.",
   },
 ];
 
@@ -53,7 +53,7 @@ export function DisenoProductoFAQ() {
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Todo sobre{" "}
-            <em className="font-serif not-italic text-accent">Diseño de Producto</em>
+            <em className="font-serif not-italic text-accent">Diseño End-to-End</em>
           </motion.h2>
         </motion.div>
 
