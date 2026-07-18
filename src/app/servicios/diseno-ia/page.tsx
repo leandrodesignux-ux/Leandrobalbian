@@ -1,12 +1,16 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Container } from "@/components/ui/Container";
-import { ServiceTabs } from "@/components/sections/ServiceTabs";
+import { DisenoIAHero } from "@/components/sections/DisenoIAHero";
+import { DisenoIASection01 } from "@/components/sections/DisenoIASection01";
+import { DisenoIASection02 } from "@/components/sections/DisenoIASection02";
+import { DisenoIAWhy } from "@/components/sections/DisenoIAWhy";
+import { DisenoIAFAQ } from "@/components/sections/DisenoIAFAQ";
+import { DisenoIACTA } from "@/components/sections/DisenoIACTA";
 
 export const metadata = {
-  title: "Diseño con IA — Leandro Balbian",
+  title: "Diseño con IA — Prototipado Funcional — Leandro Balbian",
   description:
-    "Próximamente: prototipado funcional con inteligencia artificial y sistemas de gobernanza de IA.",
+    "Prototipo con IA generativa en código real. Valida flujos complejos antes de que ingeniería invierta una sola hora en construirlos.",
 };
 
 export default function DisenoIAPage() {
@@ -14,23 +18,12 @@ export default function DisenoIAPage() {
     <>
       <Navbar />
       <main className="flex flex-1 flex-col">
-        <section className="flex flex-1 items-center justify-center py-24">
-          <Container className="text-center">
-            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-              Próximamente
-            </p>
-            <h1 className="text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
-              Diseño con IA
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-secondary">
-              Estamos preparando el contenido de este servicio. Mientras tanto,
-              podés explorar los otros servicios o proyectos.
-            </p>
-            <div className="mt-12">
-              <ServiceTabs current="diseno-ia" />
-            </div>
-          </Container>
-        </section>
+        <DisenoIAHero />
+        <DisenoIASection01 />
+        <DisenoIASection02 />
+        <DisenoIAWhy />
+        <DisenoIAFAQ />
+        <DisenoIACTA />
       </main>
       <Footer />
     </>

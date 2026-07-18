@@ -1,12 +1,16 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Container } from "@/components/ui/Container";
-import { ServiceTabs } from "@/components/sections/ServiceTabs";
+import { UxWritingHero } from "@/components/sections/UxWritingHero";
+import { UxWritingSection01 } from "@/components/sections/UxWritingSection01";
+import { UxWritingSection02 } from "@/components/sections/UxWritingSection02";
+import { UxWritingWhy } from "@/components/sections/UxWritingWhy";
+import { UxWritingFAQ } from "@/components/sections/UxWritingFAQ";
+import { UxWritingCTA } from "@/components/sections/UxWritingCTA";
 
 export const metadata = {
-  title: "UX Writing & E-learning — Leandro Balbian",
+  title: "UX Writing, Onboarding & E-learning — Leandro Balbian",
   description:
-    "Próximamente: contenido orientado a usuario, video-cápsulas educativas y narrativa visual para productos digitales.",
+    "Traduzco funciones técnicas complejas en comunicación clara: interfaces, onboarding y cápsulas educativas para productos digitales.",
 };
 
 export default function UXWritingElearningPage() {
@@ -14,23 +18,12 @@ export default function UXWritingElearningPage() {
     <>
       <Navbar />
       <main className="flex flex-1 flex-col">
-        <section className="flex flex-1 items-center justify-center py-24">
-          <Container className="text-center">
-            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-              Próximamente
-            </p>
-            <h1 className="text-4xl font-bold text-primary sm:text-5xl md:text-6xl">
-              UX Writing & E-learning
-            </h1>
-            <p className="mx-auto mt-6 max-w-xl text-secondary">
-              Estamos preparando el contenido de este servicio. Mientras tanto,
-              podés explorar los otros servicios o proyectos.
-            </p>
-            <div className="mt-12">
-              <ServiceTabs current="ux-writing-elearning" />
-            </div>
-          </Container>
-        </section>
+        <UxWritingHero />
+        <UxWritingSection01 />
+        <UxWritingSection02 />
+        <UxWritingWhy />
+        <UxWritingFAQ />
+        <UxWritingCTA />
       </main>
       <Footer />
     </>
