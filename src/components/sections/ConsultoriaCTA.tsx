@@ -1,45 +1,18 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
-import { motion } from "framer-motion";
-import { ConsultoriaContactForm } from "./ConsultoriaContactForm";
+import { QualifyingForm } from "./QualifyingForm";
+import { consultoriaQuestions } from "@/lib/qualifying-questions";
 
 export function ConsultoriaCTA() {
   return (
-    <section id="contacto" className="bg-accent py-24 md:py-32">
+    <section id="contacto" className="py-24 md:py-32">
       <Container>
-        <motion.div
-          className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={staggerContainer}
-        >
-          {/* Left */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-6">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary/70">
-              Siguiente paso
-            </p>
-            <h2 className="text-balance text-4xl font-bold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-              Diagnóstico de Producto
-            </h2>
-            <p className="max-w-md text-base text-primary/80 md:text-lg">
-              Agendá una sesión exploratoria de 30 minutos. Revisamos tu
-              situación actual, identificamos qué está midiendo realmente tu
-              producto, y definimos si el diagnóstico tiene sentido para tu
-              equipo.
-            </p>
-          </motion.div>
-
-          {/* Right — form card */}
-          <motion.div
-            variants={fadeUp}
-            className="rounded-3xl border border-primary/10 bg-bg p-6 shadow-2xl sm:p-8"
-          >
-            <ConsultoriaContactForm />
-          </motion.div>
-        </motion.div>
+        <QualifyingForm
+          questions={consultoriaQuestions}
+          serviceId="consultoria-ux"
+          serviceLabel="Diagnóstico de Producto"
+        />
       </Container>
     </section>
   );
