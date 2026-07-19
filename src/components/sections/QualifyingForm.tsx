@@ -127,40 +127,52 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
     <section className="relative overflow-hidden rounded-3xl border border-border bg-bg">
       <div className="grid lg:grid-cols-[2fr_3fr]">
         {/* ── Image panel ── */}
-        <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden bg-elevated/20 lg:min-h-full">
-          {/* Subtle grid pattern */}
-          <svg
-            className="absolute inset-0 h-full w-full"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <pattern id="qf-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#qf-grid)" />
-          </svg>
-
-          <div className="relative z-10 flex flex-col items-center gap-4 p-8">
-            {serviceId === "hub" ? (
-              <Image
-                src="/SERVICIOS.png"
-                alt="Servicios Leandro Balbian"
-                width={400}
-                height={400}
-                className="h-auto w-full max-w-[200px] object-contain"
-              />
-            ) : (
+        {serviceId === "hub" ? (
+          <div className="relative min-h-[220px] overflow-hidden bg-elevated/20 lg:min-h-full">
+            <svg
+              className="absolute inset-0 h-full w-full"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <pattern id="qf-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#qf-grid)" />
+            </svg>
+            <Image
+              src="/SERVICIOS.png"
+              alt="Servicios Leandro Balbian"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+          </div>
+        ) : (
+          <div className="relative flex min-h-[220px] items-center justify-center overflow-hidden bg-elevated/20 lg:min-h-full">
+            <svg
+              className="absolute inset-0 h-full w-full"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <pattern id="qf-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#qf-grid)" />
+            </svg>
+            <div className="relative z-10 flex flex-col items-center gap-4 p-8">
               <span className="flex h-20 w-20 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent">
                 <Icon className="h-10 w-10" />
               </span>
-            )}
-            <p className="text-center font-mono text-xs uppercase tracking-widest text-accent">
-              {serviceId === "hub" ? "Servicios" : displayLabel}
-            </p>
+              <p className="text-center font-mono text-xs uppercase tracking-widest text-accent">
+                {displayLabel}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* ── Content panel ── */}
         <div className="flex flex-col p-6 sm:p-8 lg:p-10">
