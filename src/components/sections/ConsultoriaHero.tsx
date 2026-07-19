@@ -6,6 +6,7 @@ import { ServiceTabs } from "./ServiceTabs";
 import { PalancaBadge } from "./PalancaTags";
 import { getAccessibleVariants } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -71,64 +72,15 @@ export function ConsultoriaHero() {
             {/* Right — placeholder for visual */}
             <motion.div
               variants={fadeUp}
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border bg-elevated/30"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
-              <svg
-                className="absolute inset-0 h-full w-full"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <pattern
-                    id="consultoria-grid"
-                    width="40"
-                    height="40"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 40 0 L 0 0 0 40"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.04)"
-                      strokeWidth="1"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#consultoria-grid)" />
-                <rect
-                  x="8%"
-                  y="28%"
-                  width="35%"
-                  height="6%"
-                  rx="4"
-                  fill="rgba(255,255,255,0.06)"
-                />
-                <rect
-                  x="8%"
-                  y="40%"
-                  width="25%"
-                  height="6%"
-                  rx="4"
-                  fill="rgba(255,255,255,0.04)"
-                />
-                <rect
-                  x="55%"
-                  y="28%"
-                  width="37%"
-                  height="42%"
-                  rx="8"
-                  fill="rgba(255,255,255,0.04)"
-                />
-                <circle cx="14%" cy="74%" r="6" fill="#c8ff00" opacity="0.9" />
-                <rect
-                  x="20%"
-                  y="70%"
-                  width="28%"
-                  height="5%"
-                  rx="4"
-                  fill="rgba(200,255,0,0.15)"
-                />
-              </svg>
+              <Image
+                src="/DIAGNOSTICO DE PRODUCTO.png"
+                alt="Diagnóstico de Producto"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </motion.div>
           </div>
 
