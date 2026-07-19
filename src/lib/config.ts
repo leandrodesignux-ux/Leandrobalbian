@@ -1,3 +1,3 @@
 export const config = {
-  calendlyUrl: "https://cal.com/leandrobalbian",
+  calendlyUrl: "https://calendly.com/leandrodesigns/30min",
 };
