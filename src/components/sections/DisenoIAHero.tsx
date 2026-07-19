@@ -6,6 +6,7 @@ import { ServiceTabs } from "./ServiceTabs";
 import { PalancaBadge } from "./PalancaTags";
 import { getAccessibleVariants } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -70,80 +71,15 @@ export function DisenoIAHero() {
             {/* Right — visual placeholder */}
             <motion.div
               variants={fadeUp}
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border bg-elevated/30"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
-              <svg
-                className="absolute inset-0 h-full w-full"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <pattern
-                    id="ia-grid"
-                    width="40"
-                    height="40"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 40 0 L 0 0 0 40"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.04)"
-                      strokeWidth="1"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#ia-grid)" />
-                {/* Chat bubbles */}
-                <rect
-                  x="15%"
-                  y="25%"
-                  width="55%"
-                  height="14%"
-                  rx="12"
-                  fill="rgba(255,255,255,0.06)"
-                />
-                <rect
-                  x="30%"
-                  y="43%"
-                  width="55%"
-                  height="10%"
-                  rx="8"
-                  fill="rgba(200,255,0,0.12)"
-                />
-                <rect
-                  x="15%"
-                  y="57%"
-                  width="45%"
-                  height="10%"
-                  rx="8"
-                  fill="rgba(255,255,255,0.04)"
-                />
-                <rect
-                  x="25%"
-                  y="71%"
-                  width="50%"
-                  height="10%"
-                  rx="8"
-                  fill="rgba(255,255,255,0.05)"
-                />
-                {/* Loading pulse dot */}
-                <circle cx="80%" cy="48%" r="6" fill="#c8ff00" opacity="0.9" />
-                <circle cx="80%" cy="48%" r="12" fill="#c8ff00" opacity="0.2">
-                  <animate
-                    attributeName="r"
-                    values="10;18;10"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="opacity"
-                    values="0.3;0;0.3"
-                    dur="2s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              </svg>
+              <Image
+                src="/Design Engineering.png"
+                alt="Design Engineering"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </motion.div>
           </div>
 
