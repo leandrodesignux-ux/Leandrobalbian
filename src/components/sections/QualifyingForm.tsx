@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { config } from "@/lib/config";
+import Image from "next/image";
 import {
   Compass,
   Layers,
@@ -142,12 +143,21 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
           </svg>
 
           <div className="relative z-10 flex flex-col items-center gap-4 p-8">
-            {/* TODO: reemplazar con imagen real */}
-            <span className="flex h-20 w-20 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent">
-              <Icon className="h-10 w-10" />
-            </span>
+            {serviceId === "hub" ? (
+              <Image
+                src="/SERVICIOS.png"
+                alt="Servicios Leandro Balbian"
+                width={400}
+                height={400}
+                className="h-auto w-full max-w-[200px] object-contain"
+              />
+            ) : (
+              <span className="flex h-20 w-20 items-center justify-center rounded-2xl border border-accent/20 bg-accent/10 text-accent">
+                <Icon className="h-10 w-10" />
+              </span>
+            )}
             <p className="text-center font-mono text-xs uppercase tracking-widest text-accent">
-              {displayLabel}
+              {serviceId === "hub" ? "Servicios" : displayLabel}
             </p>
           </div>
         </div>
