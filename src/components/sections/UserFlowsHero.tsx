@@ -6,6 +6,7 @@ import { ServiceTabs } from "./ServiceTabs";
 import { PalancaBadge } from "./PalancaTags";
 import { getAccessibleVariants } from "@/lib/motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -71,42 +72,15 @@ export function UserFlowsHero() {
             {/* Right — visual placeholder */}
             <motion.div
               variants={fadeUp}
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border bg-elevated/30"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
-              <svg
-                className="absolute inset-0 h-full w-full"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <pattern
-                    id="uf-grid"
-                    width="40"
-                    height="40"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 40 0 L 0 0 0 40"
-                      fill="none"
-                      stroke="rgba(255,255,255,0.04)"
-                      strokeWidth="1"
-                    />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#uf-grid)" />
-                {/* Flow steps */}
-                <rect x="10%" y="25%" width="35%" height="8%" rx="6" fill="rgba(255,255,255,0.06)" />
-                <rect x="55%" y="25%" width="35%" height="8%" rx="6" fill="rgba(200,255,0,0.15)" />
-                <rect x="10%" y="42%" width="35%" height="8%" rx="6" fill="rgba(255,255,255,0.04)" />
-                <rect x="55%" y="42%" width="35%" height="8%" rx="6" fill="rgba(255,255,255,0.06)" />
-                <rect x="10%" y="59%" width="80%" height="8%" rx="6" fill="rgba(200,255,0,0.1)" />
-                {/* Arrows between steps */}
-                <path d="M 48% 29% L 52% 29%" stroke="#c8ff00" strokeWidth="1.5" opacity="0.5" />
-                <path d="M 48% 46% L 52% 46%" stroke="#c8ff00" strokeWidth="1.5" opacity="0.5" />
-                <circle cx="82%" cy="74%" r="8" fill="#c8ff00" opacity="0.9" />
-                <path d="M 78% 74% L 82% 78% L 88% 72%" fill="none" stroke="#0a0a0a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <Image
+                src="/USER.png"
+                alt="User Flows & Onboarding"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </motion.div>
           </div>
 
