@@ -78,7 +78,7 @@ export function UserFlowsSection02() {
             </span>
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-              <em className="font-serif not-italic text-accent">Onboarding</em>{" "}
+              <em className="not-italic text-accent">Onboarding</em>{" "}
               que No Necesita Manual
             </h2>
 

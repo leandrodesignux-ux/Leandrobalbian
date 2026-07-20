@@ -79,7 +79,7 @@ export function ConsultoriaSection02() {
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
               Cruce con la{" "}
-              <em className="font-serif not-italic text-accent">Realidad del Negocio</em>
+              <em className="not-italic text-accent">Realidad del Negocio</em>
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">

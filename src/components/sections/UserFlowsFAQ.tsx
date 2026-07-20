@@ -53,7 +53,7 @@ export function UserFlowsFAQ() {
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Todo sobre{" "}
-            <em className="font-serif not-italic text-accent">User Flows & Onboarding</em>
+            <em className="not-italic text-accent">User Flows & Onboarding</em>
           </motion.h2>
         </motion.div>
 

@@ -53,7 +53,7 @@ export function DisenoIAFAQ() {
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Todo sobre{" "}
-            <em className="font-serif not-italic text-accent">Design Engineering</em>
+            <em className="not-italic text-accent">Design Engineering</em>
           </motion.h2>
         </motion.div>
 

@@ -37,7 +37,7 @@ export function DisenoIAHero() {
               </div>
 
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
-                <em className="font-serif not-italic text-accent">Design</em>{" "}
+                <em className="not-italic text-accent">Design</em>{" "}
                 Engineering
               </h1>
 

@@ -58,7 +58,7 @@ export function ConsultoriaFAQ() {
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
           >
             Todo sobre{" "}
-            <em className="font-serif not-italic text-accent">Diagnóstico de Producto</em>
+            <em className="not-italic text-accent">Diagnóstico de Producto</em>
           </motion.h2>
         </motion.div>
 

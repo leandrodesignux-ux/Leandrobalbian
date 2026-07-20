@@ -79,7 +79,7 @@ export function DisenoProductoSection02() {
 
             <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
               Sistemas de Diseño y{" "}
-              <em className="font-serif not-italic text-accent">Consistencia</em>
+              <em className="not-italic text-accent">Consistencia</em>
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-secondary md:text-lg">

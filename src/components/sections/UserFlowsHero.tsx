@@ -38,7 +38,7 @@ export function UserFlowsHero() {
               </div>
 
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
-                <em className="font-serif not-italic text-accent">User Flows</em>{" "}
+                <em className="not-italic text-accent">User Flows</em>{" "}
                 & Onboarding
               </h1>
 

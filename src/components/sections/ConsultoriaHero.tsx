@@ -38,7 +38,7 @@ export function ConsultoriaHero() {
 
               <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
                 Diagnóstico{" "}
-                <em className="font-serif not-italic text-accent">
+                <em className="not-italic text-accent">
                   de Producto
                 </em>
               </h1>

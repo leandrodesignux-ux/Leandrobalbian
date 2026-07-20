@@ -43,33 +43,29 @@ export default function ServicesPage() {
                 — ¿A quién ayudo?
               </p>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-                CPO, CTO o Founder de{" "}
-                <em className="font-serif not-italic text-accent">
-                  SaaS LATAM
-                </em>
+                Equipos con{" "}
+                <em className="italic text-accent">fricción</em> en su
+                plataforma.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg">
-                Trabajo con startups en etapa growth (Serie A-B) que tienen
-                equipo de producto o diseño pero necesitan dirección estratégica
-                basada en causa, no en corazonada. Mi foco: plataformas
-                operativas, gobernanza de IA, compliance, dashboards y sistemas
-                de monitoreo.
+                Trabajo con equipos de producto que tienen una plataforma en
+                producción, pero fricción invisible que les cuesta conversión,
+                retención o velocidad de desarrollo. Lo hice en SaaS, PropTech,
+                FinTech y Enterprise Software — la industria cambia, la causa
+                se busca igual.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
                   SaaS
                 </span>
                 <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  LATAM
+                  PropTech
                 </span>
                 <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  Growth Stage
+                  FinTech
                 </span>
                 <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  Serie A-B
-                </span>
-                <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  Equipos 10-50
+                  Enterprise Software
                 </span>
               </div>
             </div>
@@ -85,7 +81,7 @@ export default function ServicesPage() {
               </p>
               <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
                 Todo lo que hago responde a una de{" "}
-                <em className="font-serif not-italic text-accent">
+                <em className="italic text-accent">
                   tres preguntas
                 </em>
               </h2>
