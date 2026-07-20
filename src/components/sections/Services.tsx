@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { Marquee } from "@/components/ui/Marquee";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { LogoMark } from "@/components/ui/LogoMark";
 import {
@@ -20,7 +19,6 @@ import {
   successCases,
   principles,
   impactMetrics,
-  marqueeItems,
 } from "@/data/services";
 import { Plus, Minus, ArrowRight } from "lucide-react";
 
@@ -261,9 +259,6 @@ export function Services() {
 
   return (
     <>
-      {/* Marquee */}
-      <Marquee items={marqueeItems} />
-
       {/* Methodology */}
       <section id="metodologia" className="py-24 md:py-32">
         <Container>

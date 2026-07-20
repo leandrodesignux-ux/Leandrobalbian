@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
+import { Marquee } from "@/components/ui/Marquee";
 import { ServicesCTA } from "@/components/sections/ServicesCTA";
 import { ServicesHero } from "@/components/sections/ServicesHero";
 import { Services } from "@/components/sections/Services";
 import { ServiceTabs } from "@/components/sections/ServiceTabs";
 import { PalancasStrip } from "@/components/sections/PalancaTags";
+import { marqueeItems } from "@/data/services";
 
 export const metadata = {
   title: "Servicios — Leandro Balbian",
@@ -19,6 +21,19 @@ export default function ServicesPage() {
       <Navbar />
       <main className="flex flex-1 flex-col">
         <ServicesHero />
+
+        {/* Marquee */}
+        <Marquee items={marqueeItems} />
+
+        {/* Explorá por servicio */}
+        <section className="border-b border-border bg-bg py-10 md:py-14">
+          <Container>
+            <p className="mb-6 font-mono text-xs uppercase tracking-widest text-secondary">
+              — Explorá por servicio
+            </p>
+            <ServiceTabs current="" />
+          </Container>
+        </section>
 
         {/* ¿A quién ayudo? */}
         <section className="border-t border-border py-24 md:py-32">
@@ -83,14 +98,6 @@ export default function ServicesPage() {
           </Container>
         </section>
 
-        <section className="border-b border-border bg-bg py-10 md:py-14">
-          <Container>
-            <p className="mb-6 font-mono text-xs uppercase tracking-widest text-secondary">
-              — Explorá por servicio
-            </p>
-            <ServiceTabs current="" />
-          </Container>
-        </section>
         <Services />
         <ServicesCTA />
       </main>
