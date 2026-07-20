@@ -46,6 +46,43 @@ export function PalancaBadge({ id, className }: PalancaBadgeProps) {
   );
 }
 
+interface PalancasListProps {
+  className?: string;
+}
+
+export function PalancasList({ className }: PalancasListProps) {
+  return (
+    <div className={cn("flex flex-col", className)}>
+      {(
+        Object.entries(PALANCA_MAP) as [
+          PalancaId,
+          (typeof PALANCA_MAP)[PalancaId]
+        ][]
+      ).map(([id, palanca]) => {
+        const Icon = ICONS[id];
+        return (
+          <div
+            key={id}
+            className="flex items-start gap-4 border-b border-border py-5 last:border-b-0"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+              <Icon className="h-5 w-5" />
+            </span>
+            <div className="flex flex-col">
+              <h3 className="text-base font-bold text-primary">
+                {palanca.label}
+              </h3>
+              <p className="text-sm leading-relaxed text-secondary">
+                {palanca.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 interface PalancasStripProps {
   className?: string;
 }

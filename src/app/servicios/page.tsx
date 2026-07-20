@@ -6,7 +6,7 @@ import { ServicesCTA } from "@/components/sections/ServicesCTA";
 import { ServicesHero } from "@/components/sections/ServicesHero";
 import { Services } from "@/components/sections/Services";
 import { ServiceTabs } from "@/components/sections/ServiceTabs";
-import { PalancasStrip } from "@/components/sections/PalancaTags";
+import { PalancasList } from "@/components/sections/PalancaTags";
 import { marqueeItems } from "@/data/services";
 
 export const metadata = {
@@ -35,62 +35,55 @@ export default function ServicesPage() {
           </Container>
         </section>
 
-        {/* ¿A quién ayudo? */}
-        <section className="border-t border-border py-24 md:py-32">
+        {/* ¿A quién ayudo? + 3 Palancas de Negocio */}
+        <section className="py-24 md:py-32">
           <Container>
-            <div className="mx-auto max-w-3xl">
-              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-                — ¿A quién ayudo?
-              </p>
-              <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-                Equipos con{" "}
-                <em className="italic text-accent">fricción</em> en su
-                plataforma.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg">
-                Trabajo con equipos de producto que tienen una plataforma en
-                producción, pero fricción invisible que les cuesta conversión,
-                retención o velocidad de desarrollo. Lo hice en SaaS, PropTech,
-                FinTech y Enterprise Software — la industria cambia, la causa
-                se busca igual.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-2">
-                <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  SaaS
-                </span>
-                <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  PropTech
-                </span>
-                <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  FinTech
-                </span>
-                <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
-                  Enterprise Software
-                </span>
+            <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+              {/* Left column — audience */}
+              <div>
+                <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
+                  — ¿A quién ayudo?
+                </p>
+                <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
+                  Equipos con{" "}
+                  <em className="italic text-accent">fricción</em> en su
+                  plataforma.
+                </h2>
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-secondary md:text-lg">
+                  Trabajo con equipos de producto que tienen una plataforma en
+                  producción, pero fricción invisible que les cuesta conversión,
+                  retención o velocidad de desarrollo. Lo hice en SaaS, PropTech,
+                  FinTech y Enterprise Software — la industria cambia, la causa
+                  se busca igual.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
+                    SaaS
+                  </span>
+                  <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
+                    PropTech
+                  </span>
+                  <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
+                    FinTech
+                  </span>
+                  <span className="rounded-full border border-border bg-elevated/40 px-3 py-1 text-xs font-medium text-secondary">
+                    Enterprise Software
+                  </span>
+                </div>
+              </div>
+
+              {/* Right column — leverage panel */}
+              <div className="rounded-2xl border border-border bg-elevated/20 p-6 md:p-8">
+                <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
+                  — 3 Palancas de Negocio
+                </p>
+                <h3 className="text-balance text-xl font-bold tracking-tight text-primary sm:text-2xl">
+                  Todo lo que hago responde a una de{" "}
+                  <em className="italic text-accent">tres preguntas</em>.
+                </h3>
+                <PalancasList className="mt-6" />
               </div>
             </div>
-          </Container>
-        </section>
-
-        {/* 3 Palancas de Negocio */}
-        <section className="border-y border-border bg-elevated/10 py-24 md:py-32">
-          <Container>
-            <div className="mx-auto max-w-3xl">
-              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
-                — 3 Palancas de Negocio
-              </p>
-              <h2 className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl">
-                Todo lo que hago responde a una de{" "}
-                <em className="italic text-accent">
-                  tres preguntas
-                </em>
-              </h2>
-              <p className="mt-5 mb-10 max-w-2xl text-base leading-relaxed text-secondary md:text-lg">
-                No importa el proyecto. Siempre vuelvo a estas tres palancas.
-                Si no mueve ninguna, no deberíamos estar haciéndolo.
-              </p>
-            </div>
-            <PalancasStrip />
           </Container>
         </section>
 
