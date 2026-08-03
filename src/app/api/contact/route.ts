@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { redis } from "@/lib/redis";
 
 interface TurnstileVerifyResponse {
   success: boolean;
@@ -86,6 +87,33 @@ export async function POST(request: Request) {
         { error: "Verificación de seguridad fallida, intentá de nuevo." },
         { status: 400 }
       );
+    }
+
+    // Rate limiting by email: max 3 messages per 14 days
+    const normalizedEmail = email.trim().toLowerCase();
+    const rateLimitKey = `contact_count:${normalizedEmail}`;
+    const RATE_LIMIT_MAX = 3;
+    const RATE_LIMIT_WINDOW_SECONDS = 14 * 24 * 60 * 60; // 14 days
+
+    try {
+      const keyExists = await redis.exists(rateLimitKey);
+      const count = await redis.incr(rateLimitKey);
+
+      if (!keyExists) {
+        await redis.expire(rateLimitKey, RATE_LIMIT_WINDOW_SECONDS);
+      }
+
+      if (count > RATE_LIMIT_MAX) {
+        return NextResponse.json(
+          {
+            error:
+              "Ya alcanzaste el límite de mensajes desde este correo. Si es urgente, escribime directo a hola@leandrobalbian.com",
+          },
+          { status: 429 }
+        );
+      }
+    } catch (redisError) {
+      console.error("Error de Redis al aplicar rate limiting:", redisError);
     }
 
     // Send internal notification email
