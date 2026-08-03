@@ -14,6 +14,7 @@ import {
   AlertCircle,
   ArrowUpRight,
 } from "lucide-react";
+import { TurnstileWidget } from "@/components/ui/TurnstileWidget";
 
 export interface Option {
   label: string;
@@ -57,6 +58,8 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
   const [showContact, setShowContact] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -90,7 +93,7 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
+    if (!name.trim() || !email.trim() || !turnstileToken) return;
     setStatus("submitting");
     setErrorMessage("");
 
@@ -106,6 +109,8 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
           name: name.trim(),
           email: email.trim(),
           message: `[Formulario de calificación — ${displayLabel}]\n\n${answersText}`,
+          website,
+          turnstileToken,
         }),
       });
 
@@ -113,10 +118,13 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
         const data = await res.json();
         setStatus("error");
         setErrorMessage(data.error || "Error al enviar.");
+        setTurnstileToken("");
         return;
       }
 
       setStatus("success");
+      setTurnstileToken("");
+      setWebsite("");
     } catch {
       setStatus("error");
       setErrorMessage("Error de conexión. Intentá de nuevo.");
@@ -333,6 +341,18 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
                 exit="exit"
               >
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  {/* Honeypot field */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    autoComplete="off"
+                    tabIndex={-1}
+                    className="absolute left-[-9999px] opacity-0"
+                    aria-hidden="true"
+                  />
+
                   <div className="flex flex-col gap-2">
                     <h3 className="text-balance text-2xl font-bold leading-tight tracking-tight text-primary sm:text-3xl">
                       Dejame tus datos
@@ -374,12 +394,21 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
                     />
                   </div>
 
+                  <TurnstileWidget
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => {
+                      setTurnstileToken("");
+                      setStatus("error");
+                      setErrorMessage("Error de verificación de seguridad. Intentá de nuevo.");
+                    }}
+                  />
+
                   <button
                     type="submit"
-                    disabled={status === "submitting"}
+                    disabled={status === "submitting" || !turnstileToken}
                     className={cn(
                       "min-h-[52px] w-full rounded-2xl bg-accent px-5 py-3 text-sm font-semibold text-bg transition-all duration-200 hover:bg-accent/90",
-                      status === "submitting" && "cursor-not-allowed opacity-60"
+                      (status === "submitting" || !turnstileToken) && "cursor-not-allowed opacity-60"
                     )}
                   >
                     {status === "submitting" ? "Enviando..." : "Enviar y recibir respuesta"}

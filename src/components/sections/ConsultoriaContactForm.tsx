@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { TurnstileWidget } from "@/components/ui/TurnstileWidget";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export function ConsultoriaContactForm() {
@@ -10,7 +11,9 @@ export function ConsultoriaContactForm() {
     email: "",
     phone: "",
     url: "",
+    website: "",
   });
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -29,6 +32,8 @@ export function ConsultoriaContactForm() {
           name: formData.name,
           email: formData.email,
           message: `Teléfono: ${formData.phone}\nURL: ${formData.url}\n\nSolicitud de diagnóstico UX desde /servicios/consultoria-ux`,
+          website: formData.website,
+          turnstileToken,
         }),
       });
 
@@ -37,11 +42,13 @@ export function ConsultoriaContactForm() {
       if (!response.ok) {
         setStatus("error");
         setErrorMessage(data.error || "Error al enviar el mensaje.");
+        setTurnstileToken("");
         return;
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", url: "" });
+      setFormData({ name: "", email: "", phone: "", url: "", website: "" });
+      setTurnstileToken("");
     } catch {
       setStatus("error");
       setErrorMessage("Error de conexión. Intentá de nuevo.");
@@ -50,6 +57,18 @@ export function ConsultoriaContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      {/* Honeypot field */}
+      <input
+        type="text"
+        name="website"
+        value={formData.website}
+        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+        autoComplete="off"
+        tabIndex={-1}
+        className="absolute left-[-9999px] opacity-0"
+        aria-hidden="true"
+      />
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label
@@ -128,12 +147,21 @@ export function ConsultoriaContactForm() {
         </div>
       </div>
 
+      <TurnstileWidget
+        onSuccess={(token) => setTurnstileToken(token)}
+        onError={() => {
+          setTurnstileToken("");
+          setStatus("error");
+          setErrorMessage("Error de verificación de seguridad. Intentá de nuevo.");
+        }}
+      />
+
       <button
         type="submit"
-        disabled={status === "submitting"}
+        disabled={status === "submitting" || !turnstileToken}
         className={cn(
           "mt-2 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-accent transition-all hover:bg-primary/90",
-          status === "submitting" && "cursor-not-allowed opacity-60"
+          (status === "submitting" || !turnstileToken) && "cursor-not-allowed opacity-60"
         )}
       >
         {status === "submitting" ? "Enviando..." : "Solicitar diagnóstico"}

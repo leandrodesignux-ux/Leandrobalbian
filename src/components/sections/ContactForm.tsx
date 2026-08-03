@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { TurnstileWidget } from "@/components/ui/TurnstileWidget";
 import { cn } from "@/lib/utils";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
@@ -10,7 +11,9 @@ export function ContactForm() {
     name: "",
     email: "",
     message: "",
+    website: "",
   });
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -25,7 +28,13 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          website: formData.website,
+          turnstileToken,
+        }),
       });
 
       const data = await response.json();
@@ -33,11 +42,13 @@ export function ContactForm() {
       if (!response.ok) {
         setStatus("error");
         setErrorMessage(data.error || "Error al enviar el mensaje.");
+        setTurnstileToken("");
         return;
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", message: "", website: "" });
+      setTurnstileToken("");
     } catch {
       setStatus("error");
       setErrorMessage("Error de conexión. Intentá de nuevo.");
@@ -46,6 +57,18 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      {/* Honeypot field */}
+      <input
+        type="text"
+        name="website"
+        value={formData.website}
+        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+        autoComplete="off"
+        tabIndex={-1}
+        className="absolute left-[-9999px] opacity-0"
+        aria-hidden="true"
+      />
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-xs font-medium uppercase tracking-widest text-secondary">
@@ -92,6 +115,15 @@ export function ContactForm() {
         />
       </div>
 
+      <TurnstileWidget
+        onSuccess={(token) => setTurnstileToken(token)}
+        onError={() => {
+          setTurnstileToken("");
+          setStatus("error");
+          setErrorMessage("Error de verificación de seguridad. Intentá de nuevo.");
+        }}
+      />
+
       <Button
         type="submit"
         variant="primary"
@@ -99,7 +131,7 @@ export function ContactForm() {
           "mt-2 w-full sm:w-auto",
           status === "submitting" && "opacity-70"
         )}
-        disabled={status === "submitting"}
+        disabled={status === "submitting" || !turnstileToken}
       >
         {status === "submitting" ? "Enviando..." : "Enviar mensaje"}
         <Send className="h-4 w-4" />

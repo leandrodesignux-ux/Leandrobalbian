@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { TurnstileWidget } from "@/components/ui/TurnstileWidget";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export function UserFlowsContactForm() {
@@ -9,7 +10,9 @@ export function UserFlowsContactForm() {
     name: "",
     email: "",
     description: "",
+    website: "",
   });
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -28,6 +31,8 @@ export function UserFlowsContactForm() {
           name: formData.name,
           email: formData.email,
           message: `Flujo o pantalla a revisar:\n${formData.description}\n\nSolicitud de consulta de User Flows & Onboarding desde /servicios/ux-writing-elearning`,
+          website: formData.website,
+          turnstileToken,
         }),
       });
 
@@ -36,11 +41,13 @@ export function UserFlowsContactForm() {
       if (!response.ok) {
         setStatus("error");
         setErrorMessage(data.error || "Error al enviar el mensaje.");
+        setTurnstileToken("");
         return;
       }
 
       setStatus("success");
-      setFormData({ name: "", email: "", description: "" });
+      setFormData({ name: "", email: "", description: "", website: "" });
+      setTurnstileToken("");
     } catch {
       setStatus("error");
       setErrorMessage("Error de conexión. Intentá de nuevo.");
@@ -49,6 +56,18 @@ export function UserFlowsContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      {/* Honeypot field */}
+      <input
+        type="text"
+        name="website"
+        value={formData.website}
+        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+        autoComplete="off"
+        tabIndex={-1}
+        className="absolute left-[-9999px] opacity-0"
+        aria-hidden="true"
+      />
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label
@@ -107,12 +126,21 @@ export function UserFlowsContactForm() {
         />
       </div>
 
+      <TurnstileWidget
+        onSuccess={(token) => setTurnstileToken(token)}
+        onError={() => {
+          setTurnstileToken("");
+          setStatus("error");
+          setErrorMessage("Error de verificación de seguridad. Intentá de nuevo.");
+        }}
+      />
+
       <button
         type="submit"
-        disabled={status === "submitting"}
+        disabled={status === "submitting" || !turnstileToken}
         className={cn(
           "mt-2 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-accent transition-all hover:bg-primary/90",
-          status === "submitting" && "cursor-not-allowed opacity-60"
+          (status === "submitting" || !turnstileToken) && "cursor-not-allowed opacity-60"
         )}
       >
         {status === "submitting" ? "Enviando..." : "Agendar consulta"}
