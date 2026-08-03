@@ -15,12 +15,14 @@ export async function POST(request: Request) {
       name,
       email,
       message,
+      observations,
       website,
       turnstileToken,
     }: {
       name?: string;
       email?: string;
       message?: string;
+      observations?: string;
       website?: string;
       turnstileToken?: string;
     } = body;
@@ -33,6 +35,13 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Nombre, email y mensaje son obligatorios." },
+        { status: 400 }
+      );
+    }
+
+    if (observations && typeof observations === "string" && observations.length > 150) {
+      return NextResponse.json(
+        { error: "Las observaciones no pueden superar los 150 caracteres." },
         { status: 400 }
       );
     }
@@ -116,6 +125,11 @@ export async function POST(request: Request) {
       console.error("Error de Redis al aplicar rate limiting:", redisError);
     }
 
+    const observationsSection =
+      observations && typeof observations === "string" && observations.trim() !== ""
+        ? `\n\nObservaciones:\n${observations.trim()}`
+        : "";
+
     // Send internal notification email
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -128,7 +142,7 @@ export async function POST(request: Request) {
         to: [toEmail],
         subject: `Nuevo mensaje de ${name} desde el portfolio`,
         reply_to: email,
-        text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
+        text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}${observationsSection}`,
       }),
     });
 

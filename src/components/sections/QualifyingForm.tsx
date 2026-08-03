@@ -58,6 +58,7 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
   const [showContact, setShowContact] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [observations, setObservations] = useState("");
   const [website, setWebsite] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -109,6 +110,7 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
           name: name.trim(),
           email: email.trim(),
           message: `[Formulario de calificación — ${displayLabel}]\n\n${answersText}`,
+          observations: observations.trim(),
           website,
           turnstileToken,
         }),
@@ -125,6 +127,7 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
       setStatus("success");
       setTurnstileToken("");
       setWebsite("");
+      setObservations("");
     } catch {
       setStatus("error");
       setErrorMessage("Error de conexión. Intentá de nuevo.");
@@ -392,6 +395,24 @@ export function QualifyingForm({ questions, serviceId, serviceLabel }: Qualifyin
                       className="min-h-[48px] w-full rounded-2xl border border-border bg-elevated/20 px-5 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                       placeholder="tu@email.com"
                     />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="qf-observations" className="text-xs font-medium uppercase tracking-widest text-secondary">
+                      Observaciones <span className="normal-case text-secondary/70">(opcional)</span>
+                    </label>
+                    <textarea
+                      id="qf-observations"
+                      rows={3}
+                      maxLength={150}
+                      value={observations}
+                      onChange={(e) => setObservations(e.target.value)}
+                      className="min-h-[80px] w-full rounded-2xl border border-border bg-elevated/20 px-5 py-3 text-sm text-primary placeholder:text-secondary/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                      placeholder="¿Algo más que quieras contarme?"
+                    />
+                    <p className="text-right text-xs text-secondary">
+                      {observations.length}/150
+                    </p>
                   </div>
 
                   <TurnstileWidget
