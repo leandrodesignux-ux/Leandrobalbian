@@ -28,7 +28,7 @@ const homeJsonLd = {
       jobTitle: "Senior Product Designer",
       url: "https://leandrobalbian.com",
       sameAs: [
-        "https://www.linkedin.com/in/leandrobalbian",
+        "https://www.linkedin.com/in/leodisenofreelance/",
         "https://github.com/leandrodesignux-ux",
       ],
       description:

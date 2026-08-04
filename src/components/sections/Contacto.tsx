@@ -3,9 +3,9 @@
 import { Container } from "@/components/ui/Container";
 import { GeometricBackground } from "@/components/ui/GeometricBackground";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { ArrowDownRight } from "lucide-react";
+import { QualifyingForm } from "./QualifyingForm";
+import { hubQuestions } from "@/lib/qualifying-questions";
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -17,77 +17,6 @@ function LinkedInIcon({ className }: { className?: string }) {
     >
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
-  );
-}
-
-function YouTubeIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-  );
-}
-
-function BehanceIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.601 3.918 5.354 1.786h2.328zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z" />
-    </svg>
-  );
-}
-
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    href: "#",
-    icon: LinkedInIcon,
-  },
-  {
-    name: "Youtube",
-    href: "#",
-    icon: YouTubeIcon,
-  },
-  {
-    name: "Behance",
-    href: "#",
-    icon: BehanceIcon,
-  },
-];
-
-function SocialCard({
-  link,
-}: {
-  link: (typeof socialLinks)[number];
-}) {
-  const Icon = link.icon;
-
-  return (
-    <motion.a
-      variants={fadeUp}
-      href={link.href}
-      className={cn(
-        "group relative flex flex-col justify-between rounded-3xl border border-border bg-elevated/30 p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-8",
-        "min-h-[180px] hover:-translate-y-1 hover:border-accent/30 hover:bg-elevated/50 hover:shadow-[0_0_40px_-12px_rgba(200,255,0,0.1)]"
-      )}
-    >
-      <span className="text-base font-semibold text-primary sm:text-lg">
-        {link.name}
-      </span>
-
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-elevated text-primary transition-colors duration-300 group-hover:bg-accent/15 group-hover:text-accent sm:h-12 sm:w-12">
-        <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
-      </span>
-    </motion.a>
   );
 }
 
@@ -119,26 +48,35 @@ export function Contacto() {
             variants={fadeUp}
             className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-6xl"
           >
-            También puedes encontrarme aquí
+            Hablemos de tu proyecto
           </motion.h2>
         </motion.div>
 
-        {/* Social cards */}
+        {/* Qualifying form */}
         <motion.div
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
         >
-          {socialLinks.map((link) => (
-            <SocialCard key={link.name} link={link} />
-          ))}
+          <motion.div variants={fadeUp} className="mb-8 max-w-2xl">
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-accent">
+              [08] — Formulario
+            </p>
+            <h3 className="text-balance text-2xl font-bold tracking-tight text-primary sm:text-3xl md:text-4xl">
+              Con estas preguntas te puedo ayudar mejor. Es cortito, te lo prometo.
+            </h3>
+          </motion.div>
+          <QualifyingForm
+            questions={hubQuestions}
+            serviceId="hub"
+            serviceLabel="Servicios"
+          />
         </motion.div>
 
-        {/* Contact CTA */}
+        {/* LinkedIn */}
         <motion.div
-          className="mt-4"
+          className="mt-12 flex items-center gap-3 md:mt-16"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -146,14 +84,16 @@ export function Contacto() {
         >
           <motion.a
             variants={fadeUp}
-            href="mailto:hola@leandro.design"
-            className="group relative flex min-h-[180px] flex-col justify-between overflow-hidden rounded-3xl bg-accent p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[0_0_60px_-16px_rgba(200,255,0,0.3)] sm:min-h-[220px] sm:p-8 lg:max-w-[calc(33.333%-11px)]"
+            href="https://www.linkedin.com/in/leodisenofreelance/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 text-sm text-secondary transition-colors hover:text-primary"
+            aria-label="LinkedIn"
           >
-            <span className="text-xl font-bold text-bg sm:text-2xl">Contacto</span>
-
-            <span className="self-end rounded-full bg-bg/15 p-2 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:translate-y-1">
-              <ArrowDownRight className="h-6 w-6 text-bg sm:h-7 sm:w-7" />
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-elevated/30 text-primary transition-colors group-hover:border-accent/30 group-hover:text-accent">
+              <LinkedInIcon className="h-4 w-4" />
             </span>
+            Puedes encontrarme aquí
           </motion.a>
         </motion.div>
       </Container>

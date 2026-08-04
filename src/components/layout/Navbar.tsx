@@ -110,10 +110,10 @@ export function Navbar() {
 
           <div className="hidden items-center gap-6 md:flex">
             <a
-              href="mailto:hola@leandro.design"
+              href="mailto:leandrodesign.ux@gmail.com"
               className="text-sm text-secondary transition-colors hover:text-primary"
             >
-              hola@leandro.design
+              leandrodesign.ux@gmail.com
             </a>
             <Button href="/servicios#contacto" variant="primary">
               Contacto
@@ -197,10 +197,10 @@ export function Navbar() {
 
               <div className="mt-auto flex flex-col gap-4 border-t border-border pt-6">
                 <a
-                  href="mailto:hola@leandro.design"
+                  href="mailto:leandrodesign.ux@gmail.com"
                   className="text-sm text-secondary transition-colors hover:text-primary"
                 >
-                  hola@leandro.design
+                  leandrodesign.ux@gmail.com
                 </a>
                 <Button href="/servicios#contacto" variant="primary" onClick={() => setIsOpen(false)}>
                   Contacto

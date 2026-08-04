@@ -31,7 +31,7 @@ const bioJsonLd = {
       "Arquitectura de información",
     ],
     sameAs: [
-      "https://www.linkedin.com/in/leandrobalbian",
+      "https://www.linkedin.com/in/leodisenofreelance/",
       "https://github.com/leandrodesignux-ux",
     ],
   },
