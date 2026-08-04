@@ -13,7 +13,7 @@ export const metadata = createMetadata({
   description:
     "Diagnóstico causal para founders y Product Leads de SaaS LATAM. Encontrá por qué tu producto pierde conversión antes de invertir en un rediseño.",
   path: "/servicios/consultoria-ux",
-  image: "/DIAGNOSTICO DE PRODUCTO.png",
+  image: "/diagnostico-de-producto.png",
 });
 
 const serviceJsonLd = {

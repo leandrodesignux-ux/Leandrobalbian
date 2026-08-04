@@ -27,7 +27,7 @@ export function createMetadata({
       title,
       description,
       siteName: "Leandro Balbian",
-      locale: "es_AR",
+      locale: "es_CL",
       images: [
         {
           url: image,

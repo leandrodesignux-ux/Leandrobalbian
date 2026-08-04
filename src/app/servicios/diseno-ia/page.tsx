@@ -14,7 +14,7 @@ export const metadata = createMetadata({
   description:
     "Prototipado funcional en código real y diseño de capa de confianza para sistemas de IA. Velocidad de desarrollo sin riesgo, con track record de +25% de eficiencia.",
   path: "/servicios/diseno-ia",
-  image: "/Design Engineering.png",
+  image: "/design-engineering.png",
 });
 
 const serviceJsonLd = {

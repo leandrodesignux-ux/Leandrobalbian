@@ -13,7 +13,7 @@ export const metadata = createMetadata({
   description:
     "Diseño end-to-end de plataformas operativas densas. Arquitectura de información con datos reales, sistemas de diseño documentados y prototipos funcionales para eliminar la fricción que genera churn.",
   path: "/servicios/diseno-producto-complejo",
-  image: "/END TO END.png",
+  image: "/end-to-end.png",
 });
 
 const serviceJsonLd = {

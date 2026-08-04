@@ -75,7 +75,7 @@ export function ConsultoriaHero() {
               className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border"
             >
               <Image
-                src="/DIAGNOSTICO DE PRODUCTO.png"
+                src="/diagnostico-de-producto.png"
                 alt="Diagnóstico de Producto"
                 fill
                 className="object-cover"

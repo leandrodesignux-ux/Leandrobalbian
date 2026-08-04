@@ -74,7 +74,7 @@ export function DisenoIAHero() {
               className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border"
             >
               <Image
-                src="/Design Engineering.png"
+                src="/design-engineering.png"
                 alt="Design Engineering"
                 fill
                 className="object-cover"

@@ -32,7 +32,8 @@ export const metadata: Metadata = {
     "FinTech",
     "Enterprise Software",
     "Design Engineering",
-    "Argentina",
+    "Chile",
+    "LATAM",
   ],
   authors: [{ name: "Leandro Balbian" }],
   creator: "Leandro Balbian",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "es_AR",
+    locale: "es_CL",
     url: "https://leandrobalbian.com",
     siteName: "Leandro Balbian",
     title: "Leandro Balbian — Senior Product Designer",

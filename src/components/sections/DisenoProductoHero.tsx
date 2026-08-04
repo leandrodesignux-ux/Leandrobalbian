@@ -74,7 +74,7 @@ export function DisenoProductoHero() {
               className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border"
             >
               <Image
-                src="/END TO END.png"
+                src="/end-to-end.png"
                 alt="Diseño End-to-End"
                 fill
                 className="object-cover"
