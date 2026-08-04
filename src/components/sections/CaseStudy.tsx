@@ -349,7 +349,17 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
                   </div>
                 )}
 
-                {section.hasImage && (
+                {section.video && (
+                  <motion.div variants={fadeUp} className="mt-10">
+                    <VideoPreview
+                      video={section.video}
+                      title={`${study.title} — ${section.title}`}
+                      className="aspect-video"
+                    />
+                  </motion.div>
+                )}
+
+                {section.hasImage && !section.video && (
                   <motion.div variants={fadeUp} className="mt-10">
                     <PlaceholderImage className="aspect-video" />
                   </motion.div>

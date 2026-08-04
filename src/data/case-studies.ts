@@ -7,6 +7,7 @@ export type CaseStudySection = {
     items: string[];
   }[];
   hasImage?: boolean;
+  video?: string;
 };
 
 export type CaseStudyData = {
@@ -49,6 +50,8 @@ export const caseStudies: Record<string, CaseStudyData> = {
           "SIAC es una plataforma de monitoreo en tiempo real diseñada para operaciones industriales de gran escala. Unifica el estado de más de 20.000 activos críticos —cámaras, sensores, gateways, maquinaria y personal— en un solo dashboard operativo.",
         ],
         hasImage: true,
+        video:
+          "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
       },
       {
         id: "problema",
