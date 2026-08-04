@@ -20,7 +20,7 @@ import {
   principles,
   impactMetrics,
 } from "@/data/services";
-import { Plus, Minus, ArrowRight } from "lucide-react";
+import { Plus, Minus, ArrowRight, Check } from "lucide-react";
 
 function MethodologyCard({
   service,
@@ -423,49 +423,76 @@ export function Services() {
       {/* Principles */}
       <section className="border-y border-border py-24 md:py-32">
         <Container>
-          <motion.div
-            className="mb-12 max-w-3xl"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-          >
-            <motion.p
-              variants={fadeUp}
-              className="mb-4 font-mono text-xs uppercase tracking-widest text-accent"
+          <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left column */}
+            <motion.div
+              className="lg:sticky lg:top-32"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              variants={staggerContainer}
             >
-              Postura
-            </motion.p>
-            <motion.h3
-              variants={fadeUp}
-              className="text-balance text-3xl font-bold tracking-tight text-primary sm:text-4xl md:text-5xl"
-            >
-              Principios que no negocio
-            </motion.h3>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col gap-6 md:gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-          >
-            {principles.map((principle) => (
               <motion.div
-                key={principle.number}
                 variants={fadeUp}
-                className="flex items-baseline gap-4 sm:gap-6"
+                className="mb-4 flex items-center gap-3"
               >
-                <span className="font-mono text-sm font-bold text-accent">
-                  {principle.number}
+                <span className="h-px w-6 bg-accent" />
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-accent">
+                  Postura
                 </span>
-                <p className="text-xl font-medium leading-relaxed text-primary sm:text-2xl md:text-3xl">
-                  {principle.text}
-                </p>
               </motion.div>
-            ))}
-          </motion.div>
+
+              <motion.h3
+                variants={fadeUp}
+                className="text-balance text-4xl font-medium leading-[1.1] tracking-tight text-primary sm:text-5xl md:text-6xl"
+              >
+                Honestidad sobre vanidad.
+              </motion.h3>
+
+              <motion.p
+                variants={fadeUp}
+                className="mt-6 max-w-md text-base leading-relaxed text-secondary md:text-lg"
+              >
+                No prometo números mágicos. Cada negocio es distinto, cada
+                industria tiene su realidad. Lo que sí garantizo: trabajo riguroso,
+                decisiones transparentes y foco en lo que realmente impacta tu
+                producto.
+              </motion.p>
+
+              <motion.div variants={fadeUp} className="mt-8">
+                <a
+                  href="/servicios#contacto"
+                  className="inline-flex items-center rounded-none bg-accent px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-bg transition-opacity hover:opacity-90"
+                >
+                  Conversemos
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right column — principles */}
+            <motion.div
+              className="flex flex-col"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              variants={staggerContainer}
+            >
+              {principles.map((principle) => (
+                <motion.div
+                  key={principle.number}
+                  variants={fadeUp}
+                  className="group flex items-center justify-between gap-6 border-b border-border py-6 first:border-t"
+                >
+                  <span className="text-base font-medium leading-snug text-primary sm:text-lg md:text-xl">
+                    {principle.text}
+                  </span>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-elevated/30 text-accent transition-colors group-hover:border-accent/30 group-hover:bg-accent/10">
+                    <Check className="h-4 w-4" strokeWidth={3} />
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </Container>
       </section>
 
