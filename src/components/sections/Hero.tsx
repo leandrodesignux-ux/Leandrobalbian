@@ -184,8 +184,8 @@ export function Hero() {
                   href="/proyectos"
                   className="group inline-flex items-center gap-3 rounded-full bg-accent px-2 pl-5 py-2 text-sm font-semibold text-bg shadow-[0_0_40px_-12px_rgba(200,255,0,0.35)] transition-all duration-300 hover:shadow-[0_0_60px_-12px_rgba(200,255,0,0.5)]"
                 >
-                  Ver casos de estudio
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  Ver proyectos
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-bg text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                     <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </a>
