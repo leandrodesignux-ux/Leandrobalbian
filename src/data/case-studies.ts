@@ -36,6 +36,8 @@ export const caseStudies: Record<string, CaseStudyData> = {
       "Rediseño de plataforma de monitoreo para 20.347 activos críticos en tiempo real.",
     intro:
       "Un dashboard operativo que unifica dispositivos IoT, alarmas, seguimiento de activos y gestión de usuarios en una interfaz oscura, técnica y de alta densidad informativa.",
+    video:
+      "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
     metrics: [
       { value: "20.347", label: "Activos monitoreados" },
       { value: "1.284", label: "Alertas procesadas" },
@@ -50,8 +52,6 @@ export const caseStudies: Record<string, CaseStudyData> = {
           "SIAC es una plataforma de monitoreo en tiempo real diseñada para operaciones industriales de gran escala. Unifica el estado de más de 20.000 activos críticos —cámaras, sensores, gateways, maquinaria y personal— en un solo dashboard operativo.",
         ],
         hasImage: true,
-        video:
-          "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
       },
       {
         id: "problema",
