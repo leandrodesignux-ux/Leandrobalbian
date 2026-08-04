@@ -8,16 +8,54 @@ import { Services } from "@/components/sections/Services";
 import { ServiceTabs } from "@/components/sections/ServiceTabs";
 import { PalancasList } from "@/components/sections/PalancaTags";
 import { marqueeItems } from "@/data/services";
+import { createMetadata, jsonLdScript } from "@/lib/seo";
 
-export const metadata = {
-  title: "Servicios — Leandro Balbian",
+export const metadata = createMetadata({
+  title: "Servicios",
   description:
     "Diagnóstico de producto, diseño end-to-end, design engineering y user flows para founders y CPO de SaaS LATAM.",
+  path: "/servicios",
+  image: "/SERVICIOS.png",
+});
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Diagnóstico de Producto",
+      url: "https://leandrobalbian.com/servicios/consultoria-ux",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Diseño End-to-End",
+      url: "https://leandrobalbian.com/servicios/diseno-producto-complejo",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Design Engineering",
+      url: "https://leandrobalbian.com/servicios/diseno-ia",
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "User Flows & Onboarding",
+      url: "https://leandrobalbian.com/servicios/ux-writing-elearning",
+    },
+  ],
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScript(servicesJsonLd)}
+      />
       <Navbar />
       <main className="flex flex-1 flex-col">
         <ServicesHero />

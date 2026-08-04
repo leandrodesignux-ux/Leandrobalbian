@@ -15,9 +15,61 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Leandro Balbian — Senior Product Designer",
+  metadataBase: new URL("https://leandrobalbian.com"),
+  title: {
+    default: "Leandro Balbian — Senior Product Designer",
+    template: "%s — Leandro Balbian",
+  },
   description:
     "Diseño plataformas complejas para que decisiones críticas tomen segundos, no minutos.",
+  keywords: [
+    "UX",
+    "UI",
+    "Product Design",
+    "Diseño de producto",
+    "SaaS",
+    "PropTech",
+    "FinTech",
+    "Enterprise Software",
+    "Design Engineering",
+    "Argentina",
+  ],
+  authors: [{ name: "Leandro Balbian" }],
+  creator: "Leandro Balbian",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: "https://leandrobalbian.com",
+    siteName: "Leandro Balbian",
+    title: "Leandro Balbian — Senior Product Designer",
+    description:
+      "Diseño plataformas complejas para que decisiones críticas tomen segundos, no minutos.",
+    images: [
+      {
+        url: "/HERO.png",
+        width: 1200,
+        height: 630,
+        alt: "Leandro Balbian — Senior Product Designer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leandro Balbian — Senior Product Designer",
+    description:
+      "Diseño plataformas complejas para que decisiones críticas tomen segundos, no minutos.",
+    images: ["/HERO.png"],
+  },
+  verification: {
+    google: "QGg_v50E57iG2OfX_6MNjXqgPbzkUnEYPBl0wPho3Jc",
+  },
 };
 
 export const viewport: Viewport = {

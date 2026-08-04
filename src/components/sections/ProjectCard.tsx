@@ -15,9 +15,10 @@ interface ProjectCardProps {
 
 interface ProjectPreviewProps {
   video?: string;
+  title?: string;
 }
 
-function ProjectPreview({ video }: ProjectPreviewProps) {
+function ProjectPreview({ video, title }: ProjectPreviewProps) {
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-elevated">
       {video ? (
@@ -26,7 +27,7 @@ function ProjectPreview({ video }: ProjectPreviewProps) {
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           className="absolute inset-0 h-full w-full border-0"
-          title={`${video} preview`}
+          title={title ? `Vista previa del proyecto ${title}` : "Project preview"}
         />
       ) : (
         <>
@@ -94,7 +95,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         >
-          <ProjectPreview video={project.video} />
+          <ProjectPreview video={project.video} title={project.title} />
         </motion.div>
       </Link>
 

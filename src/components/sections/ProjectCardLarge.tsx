@@ -11,9 +11,10 @@ import type { ProjectListItem } from "@/data/projects-list";
 
 interface ProjectPreviewProps {
   video?: string;
+  title?: string;
 }
 
-function ProjectPreview({ video }: ProjectPreviewProps) {
+function ProjectPreview({ video, title }: ProjectPreviewProps) {
   return (
     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-elevated">
       {video ? (
@@ -22,7 +23,7 @@ function ProjectPreview({ video }: ProjectPreviewProps) {
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           className="absolute inset-0 h-full w-full border-0"
-          title="Project preview"
+          title={title ? `Vista previa del proyecto ${title}` : "Project preview"}
         />
       ) : (
         <>
@@ -181,7 +182,7 @@ export function ProjectCardLarge({
             isHovered && "scale-[1.03]"
           )}
         >
-          <ProjectPreview video={project.video} />
+          <ProjectPreview video={project.video} title={project.title} />
         </div>
       </Link>
     </motion.article>
