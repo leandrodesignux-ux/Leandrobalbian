@@ -25,7 +25,7 @@ export const projects: Project[] = [
     cta: "Explorar sistema",
     href: "/proyectos/siac",
     video:
-      "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479",
+      "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&controls=0&title=0&byline=0&portrait=0",
   },
   {
     label: "Sistema de coordinación de agentes IA",
