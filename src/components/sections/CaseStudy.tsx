@@ -375,7 +375,7 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
                 )}
 
                 {section.hasImage && !section.image && !section.video && (
-                  <motion.div variants={fadeUp} className="mt-10">
+                  <motion.div variants={fadeUp} className="mt-10 w-[82%]">
                     <PlaceholderImage className="aspect-video" />
                   </motion.div>
                 )}
