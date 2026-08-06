@@ -8,6 +8,7 @@ export type CaseStudySection = {
   }[];
   hasImage?: boolean;
   video?: string;
+  image?: string;
 };
 
 export type CaseStudyData = {
@@ -51,7 +52,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
         paragraphs: [
           "SIAC es una plataforma de monitoreo en tiempo real diseñada para operaciones industriales de gran escala. Unifica el estado de más de 20.000 activos críticos —cámaras, sensores, gateways, maquinaria y personal— en un solo dashboard operativo.",
         ],
-        hasImage: true,
+        image: "/SIAC-CONTEXTO.webp",
       },
       {
         id: "problema",

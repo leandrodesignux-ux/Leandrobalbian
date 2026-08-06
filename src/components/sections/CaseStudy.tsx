@@ -10,6 +10,7 @@ import {
 } from "@/lib/motion";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import type { CaseStudyData, CaseStudySection } from "@/data/case-studies";
 import type { ProjectListItem } from "@/data/projects-list";
@@ -359,7 +360,21 @@ export function CaseStudy({ study, related }: CaseStudyProps) {
                   </motion.div>
                 )}
 
-                {section.hasImage && !section.video && (
+                {section.image && !section.video && (
+                  <motion.div variants={fadeUp} className="mt-10">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-elevated">
+                      <Image
+                        src={section.image}
+                        alt={`${study.title} — ${section.title}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </motion.div>
+                )}
+
+                {section.hasImage && !section.image && !section.video && (
                   <motion.div variants={fadeUp} className="mt-10">
                     <PlaceholderImage className="aspect-video" />
                   </motion.div>
