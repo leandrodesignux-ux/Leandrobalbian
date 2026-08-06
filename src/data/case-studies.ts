@@ -38,7 +38,7 @@ export const caseStudies: Record<string, CaseStudyData> = {
     intro:
       "Un dashboard operativo que unifica dispositivos IoT, alarmas, seguimiento de activos y gestión de usuarios en una interfaz oscura, técnica y de alta densidad informativa.",
     video:
-      "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0",
+      "https://player.vimeo.com/video/1210607707?badge=0&autopause=0&player_id=0&app_id=58479",
     metrics: [
       { value: "20.347", label: "Activos monitoreados" },
       { value: "1.284", label: "Alertas procesadas" },
