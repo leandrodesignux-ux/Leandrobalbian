@@ -1,6 +1,27 @@
 import { NextResponse } from "next/server";
 import { redis } from "@/lib/redis";
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function getClientIP(request: Request): string | null {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",")[0].trim();
+  }
+  return request.headers.get("x-real-ip");
+}
+
 interface TurnstileVerifyResponse {
   success: boolean;
   "error-codes"?: string[];
@@ -35,6 +56,13 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Nombre, email y mensaje son obligatorios." },
+        { status: 400 }
+      );
+    }
+
+    if (!isValidEmail(email)) {
+      return NextResponse.json(
+        { error: "El formato del email no es válido." },
         { status: 400 }
       );
     }
@@ -104,6 +132,12 @@ export async function POST(request: Request) {
     const RATE_LIMIT_MAX = 3;
     const RATE_LIMIT_WINDOW_SECONDS = 14 * 24 * 60 * 60; // 14 days
 
+    // Rate limiting by IP: max 10 messages per 24 hours
+    const clientIP = getClientIP(request);
+    const ipRateLimitKey = clientIP ? `contact_ip:${clientIP}` : null;
+    const IP_RATE_LIMIT_MAX = 10;
+    const IP_RATE_LIMIT_WINDOW_SECONDS = 24 * 60 * 60; // 24 hours
+
     try {
       const keyExists = await redis.exists(rateLimitKey);
       const count = await redis.incr(rateLimitKey);
@@ -120,6 +154,25 @@ export async function POST(request: Request) {
           },
           { status: 429 }
         );
+      }
+
+      if (ipRateLimitKey) {
+        const ipKeyExists = await redis.exists(ipRateLimitKey);
+        const ipCount = await redis.incr(ipRateLimitKey);
+
+        if (!ipKeyExists) {
+          await redis.expire(ipRateLimitKey, IP_RATE_LIMIT_WINDOW_SECONDS);
+        }
+
+        if (ipCount > IP_RATE_LIMIT_MAX) {
+          return NextResponse.json(
+            {
+              error:
+                "Demasiados mensajes desde esta red. Intentá de nuevo más tarde.",
+            },
+            { status: 429 }
+          );
+        }
       }
     } catch (redisError) {
       console.error("Error de Redis al aplicar rate limiting:", redisError);
@@ -167,7 +220,7 @@ export async function POST(request: Request) {
           to: [email],
           subject: "Recibí tu mensaje — Leandro Designs",
           text: `Hola ${name},\n\nGracias por contactarte. Tu mensaje fue recibido y lo estoy revisando.\n\nTe respondo en 24-48hs hábiles.\n\nSaludos,\nLeandro Designs`,
-          html: `<p>Hola ${name},</p><p>Gracias por contactarte. Tu mensaje fue recibido y lo estoy revisando.</p><p>Te respondo en 24-48hs hábiles.</p><p>Saludos,<br>Leandro Designs</p>`,
+          html: `<p>Hola ${escapeHtml(name)},</p><p>Gracias por contactarte. Tu mensaje fue recibido y lo estoy revisando.</p><p>Te respondo en 24-48hs hábiles.</p><p>Saludos,<br>Leandro Designs</p>`,
         }),
       });
     } catch (confirmationError) {
